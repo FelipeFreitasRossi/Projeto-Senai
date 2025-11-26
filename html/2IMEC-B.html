@@ -61,13 +61,19 @@
     <section class="carousel-section">
         <div class="carousel-header">
             <div class="group-tabs">
-                <div class="group-tab active" data-slide="0" data-i18n="group1">Grupo 1</div>
-                <div class="group-tab" data-slide="1" data-i18n="group2">Grupo 2</div>
-                <div class="group-tab" data-slide="2" data-i18n="group3">Grupo 3</div>
-                <div class="group-tab" data-slide="3" data-i18n="group4">Grupo 4</div>
-                <div class="group-tab" data-slide="4" data-i18n="group5">Grupo 5</div>
-                <div class="group-tab" data-slide="5" data-i18n="group6">Grupo 6</div>
-                <div class="group-tab" data-slide="6" data-i18n="group7">Grupo 7</div>
+                <div class="group-tab active" data-slide="1" data-i18n="group1">Grupo 1</div>
+                <div class="group-tab" data-slide="2" data-i18n="group2">Grupo 2</div>
+                <div class="group-tab" data-slide="3" data-i18n="group3">Grupo 3</div>
+                <div class="group-tab" data-slide="4" data-i18n="group4">Grupo 4</div>
+                <div class="group-tab" data-slide="5" data-i18n="group5">Grupo 5</div>
+                <div class="group-tab" data-slide="6" data-i18n="group6">Grupo 6</div>
+                <div class="group-tab" data-slide="7" data-i18n="group7">Grupo 7</div>
+                <div class="group-tab" data-slide="8">Mechatec Solutions</div>
+                <div class="group-tab" data-slide="9">CyberTrace: Plotech</div>
+                <div class="group-tab" data-slide="10">TechnoArm : Arm Simulator</div>
+                <div class="group-tab" data-slide="11">SelectPro: WinderTech</div>
+                <div class="group-tab" data-slide="12" data-i18n="group5">Grupo 12</div>
+                <div class="group-tab" data-slide="13" data-i18n="group6">Grupo 13</div>
             </div>
         </div>
         
@@ -121,6 +127,48 @@
                     <p data-i18n="group7">Grupo 7</p>
                 </div>
             </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920&h=1080&fit=crop" alt="Grupo 1">
+                <div class="carousel-overlay">
+                    <h2 data-i18n="mecC_project1Title">Gerenciamento de brocas</h2>
+                    <p>Mechatec Solutions</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&h=1080&fit=crop" alt="Grupo 2">
+                <div class="carousel-overlay">
+                    <h2 data-i18n="mecC_project2Title">Desenhos Técnicos com inteligência artificial</h2>
+                    <p>CyberTrace: Plotech</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920&h=1080&fit=crop" alt="Grupo 3">
+                <div class="carousel-overlay">
+                    <h2 data-i18n="mecC_project3Title">Braço robótico</h2>
+                    <p>TechnoArm : Arm Simulator</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop" alt="Grupo 4">
+                <div class="carousel-overlay">
+                    <h2 data-i18n="mecC_project4Title">CNC Controlado por Arduino</h2>
+                    <p>SelectPro: WinderTech</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop" alt="Grupo 5">
+                <div class="carousel-overlay">
+                    <h2 data-i18n="mecC_project5Title">Sistema de Controle de Esteira</h2>
+                    <p>InnovaTech</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop" alt="Grupo 6">
+                <div class="carousel-overlay">
+                    <h2 data-i18n="mecC_project6Title">Sensor IoT para Indústria 4.0</h2>
+                    <p data-i18n="group6">Grupo 13</p>
+                </div>
+            </div>
             
             <button class="carousel-arrow prev">‹</button>
             <button class="carousel-arrow next">›</button>
@@ -131,13 +179,12 @@
 
     <!-- Projects Section -->
     <section class="projects-section">
-        <h2 class="section-title" data-i18n="mecB_sectionTitle">Projetos 2IMEC-B</h2>
+        <h2 class="section-title" data-i18n="mecB_sectionTitle">Projetos 2IMEC</h2>
 
         <!-- Projeto 1 -->
         <div class="project-card">
-            <div class="project-image" onclick="window.open('https://youtube.com', '_blank')">
+            <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800" alt="Projeto 1">
-                <div class="play-button">▶</div>
             </div>
             <div class="project-content">
                 <div class="project-number" data-i18n="project01">PROJETO 01</div>
@@ -146,15 +193,21 @@
                     Plataforma robótica móvel com sistema de navegação autônoma utilizando sensores ultrassônicos, 
                     LIDAR e algoritmos de mapeamento SLAM para aplicações em ambientes industriais.
                 </p>
-                <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Assistir Vídeo</a>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div> 
             </div>
         </div>
 
         <!-- Projeto 2 -->
         <div class="project-card">
-            <div class="project-image" onclick="window.open('https://youtube.com', '_blank')">
+            <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800" alt="Projeto 2">
-                <div class="play-button">▶</div>
             </div>
             <div class="project-content">
                 <div class="project-number" data-i18n="project02">PROJETO 02</div>
@@ -163,15 +216,21 @@
                     Bancada didática de sistema hidráulico com controle eletrônico de pressão e vazão, 
                     simulando operações de prensas industriais e sistemas de elevação.
                 </p>
-                <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Assistir Vídeo</a>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>           
             </div>
         </div>
 
         <!-- Projeto 3 -->
         <div class="project-card">
-            <div class="project-image" onclick="window.open('https://youtube.com', '_blank')">
+            <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092160607-ee5c1f36f44d?w=800" alt="Projeto 3">
-                <div class="play-button">▶</div>
             </div>
             <div class="project-content">
                 <div class="project-number" data-i18n="project03">PROJETO 03</div>
@@ -180,15 +239,21 @@
                     Drone equipado com câmera térmica e sensores para inspeção de torres, 
                     linhas de transmissão e estruturas industriais de difícil acesso.
                 </p>
-                <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Assistir Vídeo</a>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>            
             </div>
         </div>
 
         <!-- Projeto 4 -->
         <div class="project-card">
-            <div class="project-image" onclick="window.open('https://youtube.com', '_blank')">
+            <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092918484-8313e1f7f58d?w=800" alt="Projeto 4">
-                <div class="play-button">▶</div>
             </div>
             <div class="project-content">
                 <div class="project-number" data-i18n="project04">PROJETO 04</div>
@@ -197,15 +262,21 @@
                     Impressora 3D FDM customizada com sistema de auto-nivelamento, 
                     sensores de filamento e monitoramento remoto via IoT para fabricação de precisão.
                 </p>
-                <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Assistir Vídeo</a>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>           
             </div>
         </div>
 
         <!-- Projeto 5 -->
         <div class="project-card">
-            <div class="project-image" onclick="window.open('https://youtube.com', '_blank')">
+            <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Projeto 5">
-                <div class="play-button">▶</div>
             </div>
             <div class="project-content">
                 <div class="project-number" data-i18n="project05">PROJETO 05</div>
@@ -214,15 +285,21 @@
                     Rede de sensores térmicos para monitoramento contínuo de temperatura em processos industriais, 
                     com alertas automáticos e análise preditiva de falhas.
                 </p>
-                <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Assistir Vídeo</a>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>            
             </div>
         </div>
 
         <!-- Projeto 6 -->
         <div class="project-card">
-            <div class="project-image" onclick="window.open('https://youtube.com', '_blank')">
+            <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Projeto 6">
-                <div class="play-button">▶</div>
             </div>
             <div class="project-content">
                 <div class="project-number" data-i18n="project06">PROJETO 06</div>
@@ -231,15 +308,21 @@
                     Veículo de transporte autônomo para movimentação de materiais em ambientes industriais, 
                     utilizando navegação por fita magnética e sensores de obstáculos.
                 </p>
-                <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Assistir Vídeo</a>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>           
             </div>
         </div>
 
         <!-- Projeto 7 -->
         <div class="project-card">
-            <div class="project-image" onclick="window.open('https://youtube.com', '_blank')">
+            <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?w=800" alt="Projeto 7">
-                <div class="play-button">▶</div>
             </div>
             <div class="project-content">
                 <div class="project-number" data-i18n="project07">PROJETO 07</div>
@@ -248,7 +331,148 @@
                     Célula de manufatura integrada com braço robótico, esteira transportadora e sistema 
                     de visão computacional para montagem automatizada de componentes eletrônicos.
                 </p>
-                <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Assistir Vídeo</a>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>         
+            </div>
+        </div>
+
+        <!-- Projeto 8 -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="Projeto 1">
+            </div>
+            <div class="project-content">
+                <div class="project-number">Mechatec Solutions</div>
+                <h3 class="project-title" data-i18n="mecC_project1Title">Gerenciamento de Broca</h3>
+                <p class="project-description" data-i18n="mecC_project1Desc">
+                    Seletora de brocas automatizada, onde você escolhe a broca desejada e ela te entrega automaticamente, fazendo o controle de dados e organizando o ambiente de trabalho
+                </p>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>          
+            </div>
+        </div>
+
+        <!-- Projeto 9 -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Projeto 2">
+            </div>
+            <div class="project-content">
+                <div class="project-number">CyberTrace: Plotech</div>
+                <h3 class="project-title" data-i18n="mecC_project2Title">Desenhos Técnicos com inteligência artificial</h3>
+                <p class="project-description" data-i18n="mecC_project2Desc">
+                    Plotech, a mesa cartesiana de baixo custo controlada por uma inteligência artificial, que será projetada para realizar desenhos técnicos e escritas com precisão.
+                </p>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>         
+            </div>
+        </div>
+
+        <!-- Projeto 10 -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="Projeto 3">
+            </div>
+            <div class="project-content">
+                <div class="project-number">TechnoArm:Arm Simulator</div>
+                <h3 class="project-title" data-i18n="mecC_project3Title">Braço robótico</h3>
+                <p class="project-description" data-i18n="mecC_project3Desc">
+                    Braço robótico em menor escala, para uma solução prática, aulas dinâmicas e melhor o desenvolvimento de trabalhos e estudos
+                </p>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>            
+            </div>
+        </div>
+
+        <!-- Projeto 11 -->
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Projeto 4">
+            </div>
+            <div class="project-content">
+                <div class="project-number">SelectPro: WinderTech</div>
+                <h3 class="project-title" data-i18n="mecC_project4Title">CNC Controlado por Arduino</h3>
+                <p class="project-description" data-i18n="mecC_project4Desc">
+                    Fresadora CNC de 3 eixos controlada por GRBL e Arduino, capaz de realizar 
+                    usinagem de precisão em materiais como madeira, plástico e alumínio.
+                </p>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>            
+            </div>
+        </div>
+
+        <!-- Projeto 12 -->
+        <div class="project-card">
+            <div class="project-image" >
+                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop" alt="Projeto 5">
+            </div>
+            <div class="project-content">
+                <div class="project-number">InnovaTech</div>
+                <h3 class="project-title" data-i18n="mecC_project5Title">Visão computacional de Gerenciamento</h3>
+                <p class="project-description" data-i18n="mecC_project5Desc">
+                    Visão computacional para uma organização precisa, eficiente e com qualidade garantida.
+                </p>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div>           
+            </div>
+        </div>
+
+        <!-- Projeto 13 -->
+        <div class="project-card">
+            <div class="project-image" ">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop" alt="Projeto 6">
+            </div>
+            <div class="project-content">
+                <div class="project-number" data-i18n="project06">PROJETO 06</div>
+                <h3 class="project-title" data-i18n="mecC_project6Title">Sistema IoT para Indústria 4.0</h3>
+                <p class="project-description" data-i18n="mecC_project6Desc">
+                    Rede de sensores inteligentes conectados via IoT para monitoramento em tempo real 
+                    de temperatura, umidade, vibração e consumo energético de máquinas industriais.
+                </p>
+                <div class="botoes-container">
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
+                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
+                    <!-- From Uiverse.io by mrtqzbek11 --> 
+                <div class="corner-container">
+                    <a href="[Seu Link Aqui]" target="_blank" class="link-site" data-i18n="linkSite">Visitar site</a>
+                </div>
+                </div> 
             </div>
         </div>
     </section>

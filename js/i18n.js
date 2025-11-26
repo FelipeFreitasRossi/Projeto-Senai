@@ -19,13 +19,9 @@ const translations = {
         class3TDSDesc: "Turma de formandos com projetos inovadores em desenvolvimento web full-stack, IoT, automação e sistemas inteligentes.",
         
         // Turma 2IMEC-B
-        class2IMECBTitle: "2º Integral em Mecatrônica - Turma B",
+        class2IMECBTitle: "2º Integral em Mecatrônica",
         class2IMECBDesc: "Projetos integrando robótica, automação industrial, eletrônica e programação embarcada para soluções mecatrônicas.",
-        
-        // Turma 2IMEC-C
-        class2IMECCTitle: "2º Integral em Mecatrônica - Turma C",
-        class2IMECCDesc: "Desenvolvimento de sistemas automatizados, sensores inteligentes e controle de processos industriais aplicados.",
-        
+
         // Turma 2IDS
         class2IDSTitle: "2º Integral em Desenvolvimento de Sistemas",
         class2IDSDesc: "Turma integral com foco em aplicações web modernas, mobile, banco de dados e arquitetura de software escalável.",
@@ -50,11 +46,14 @@ const translations = {
         
         // Páginas de Projetos
         ourProjects: "Nossos Projetos",
-        watchVideo: "Assistir Vídeo",
+        watchVideo: "Funcionamento",
+        watchVideoComercial: "Comercial",
         projects3TDSTitle: "Projetos 3TDS",
         projects2IMECBTitle: "Projetos 2IMEC-B",
         projects2IMECCTitle: "Projetos 2IMEC-C",
-        projects2IDSTitle: "Projetos 2IDS"
+        projects2IDSTitle: "Projetos 2IDS",
+
+        linkSite: "Visitar Site",
     },
     en: {
         // Buttons
@@ -106,11 +105,14 @@ const translations = {
         
         // Project Pages
         ourProjects: "Our Projects",
-        watchVideo: "Watch Video",
+        watchVideo: "Operation",
+        watchVideoComercial: "Commercial",
         projects3TDSTitle: "3TDS Projects",
         projects2IMECBTitle: "2IMEC-B Projects",
         projects2IMECCTitle: "2IMEC-C Projects",
-        projects2IDSTitle: "2IDS Projects"
+        projects2IDSTitle: "2IDS Projects",
+
+        linkSite: "Visit Website"
     }
 };
 
@@ -120,7 +122,9 @@ let currentLang = localStorage.getItem('language') || 'pt';
 function translatePage() {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
+        // @ts-ignore
         if (translations[currentLang][key]) {
+            // @ts-ignore
             element.textContent = translations[currentLang][key];
         }
     });
