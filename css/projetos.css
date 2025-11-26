@@ -1,7 +1,20 @@
+/* Estilos globais (sem alteração) */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Adicionado aqui para aplicar a transição suave a todos os elementos */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Garantir que os gradientes não sejam afetados pela transição */
+.hero-title,
+.section-title,
+.about-title,
+.class-title,
+.project-title,
+.footer-section h3 {
+    transition: none;
 }
 
 body {
@@ -9,6 +22,7 @@ body {
     background: #0a0a0a;
     color: #fff;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Particles Canvas */
@@ -165,6 +179,8 @@ body {
     animation: bounce 2s infinite;
     z-index: 1;
     cursor: pointer;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .scroll-indicator::after {
@@ -261,8 +277,10 @@ body {
     height: 200%;
     background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.3), transparent);
     transform: rotate(45deg);
-    animation: shine 3s infinite;
     z-index: 1;
+}
+.project-image:hover::before {
+    animation: shine 1.5s ease-in-out; 
 }
 
 @keyframes shine {
@@ -370,38 +388,39 @@ body {
 }
 
 .project-link {
+    /* ... (Estilos de link de projeto) */
     display: inline-block;
-    padding: 15px 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    align-self: flex-start;
+    align-self: flex-start; 
     position: relative;
-    overflow: hidden;
-    animation: slideInLeft 0.6s ease 0.3s backwards;
+    overflow: hidden; 
+    padding: 15px 40px; 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: 600; 
+    transition: all 0.3s ease; 
+    animation: slideInLeft 0.6s ease 0.3s backwards; 
 }
 
 .project-link::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -100%; 
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
+    transition: left 0.5s ease; 
 }
 
 .project-link:hover::before {
-    left: 100%;
+    left: 100%; 
 }
 
 .project-link:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); 
 }
 
 /* 3D Card effect on hover */
@@ -505,204 +524,74 @@ footer {
     font-weight: 600;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .carousel-overlay h2 {
-        font-size: 2rem;
-    }
+/* ========== BOTÕES FIXOS E BOTÃO PRINCIPAL (NOVO ESTILO) ========== */
 
-    .carousel-overlay p {
-        font-size: 1.2rem;
-    }
-
-    .carousel-arrow {
-        width: 45px;
-        height: 45px;
-        font-size: 1.5rem;
-    }
-
-    .carousel-arrow.prev {
-        left: 15px;
-    }
-
-    .carousel-arrow.next {
-        right: 15px;
-    }
-
-    .group-tabs {
-        gap: 10px;
-    }
-
-    .group-tab {
-        padding: 8px 15px;
-        font-size: 0.75rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .project-card {
-        flex-direction: column !important;
-        gap: 30px;
-        padding: 30px;
-        margin-bottom: 80px;
-    }
-
-    .project-title {
-        font-size: 1.8rem;
-    }
-
-    .project-image {
-        min-height: 300px;
-    }
-
-    .project-description {
-        font-size: 1rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-section {
-        text-align: center;
-    }
-
-    .social-links {
-        justify-content: center;
-        flex-direction: column;
-    }
+/* Posicionamento do botão principal no canto inferior direito */
+.corner-container {
+    position: fixed;
+    bottom: 30px; 
+    right: 30px; 
+    z-index: 10000; 
 }
 
-/* ========== TEMA ESCURO E CLARO ========== */
-body {
-    transition: background-color 0.3s ease, color 0.3s ease;
+/* 🎯 NOVO ESTILO: Aplicando os estilos 'button' à classe .link-site, com ajustes para fixação */
+.link-site {
+    /* Estilos do botão original */
+    width: 165px;
+    height: 62px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 1rem;
+    border: 1px solid white; /* Borda branca explícita */
+    position: relative;
+    background: #100720;
+    transition: all 0.2s ease; /* Alterado de 0.1s para suavizar mais as transições */
+    
+    /* Adições para centralizar texto e flex-shrink */
+    text-decoration: none; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-shrink: 0; 
+    font-weight: 600; /* Adicionado para destacar */
 }
 
-/* Tema Claro */
-body.light-theme {
-    background: #f5f5f5 !important;
-    color: #333 !important;
+.link-site::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    /* O gradiente não está presente na definição original,
+       mas vamos adicionar um sutil no hover/active para dar o efeito de brilho */
+    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,0.5) 17.8%, rgba(2,245,255,0.5) 100.2% );
+    filter: blur(15px);
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0; /* Invisível por padrão */
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
 }
 
-body.light-theme .wave-container svg path {
-    opacity: 0.3;
+/* Efeito ao clicar (com o gradiente) */
+.link-site:active {
+    transform: scale(0.9) rotate(3deg);
+    background: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+    transition: 0.2s;
 }
 
-body.light-theme .gradient-overlay {
-    background: radial-gradient(ellipse at top, rgba(102, 126, 234, 0.05), transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(118, 75, 162, 0.05), transparent 50%);
+/* Efeito Hover: Aumenta a opacidade do brilho interno */
+.link-site:hover::after {
+    opacity: 1; 
 }
 
-body.light-theme .dots .dot {
-    background: rgba(102, 126, 234, 0.4);
+.link-site:hover {
+    /* Adicionado box-shadow sutil no hover */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-body.light-theme .hero-title,
-body.light-theme .section-title,
-body.light-theme .about-title,
-body.light-theme .class-title,
-body.light-theme .project-title {
-    background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-body.light-theme .hero-subtitle,
-body.light-theme .class-description,
-body.light-theme .project-description,
-body.light-theme .about-text,
-body.light-theme .stat-label,
-body.light-theme .global-stat-label {
-    color: #555 !important;
-}
-
-body.light-theme .class-card,
-body.light-theme .project-card,
-body.light-theme .global-stat {
-    background: rgba(255,255,255,0.8);
-    border-color: rgba(0,0,0,0.1);
-}
-
-body.light-theme .class-card:hover,
-body.light-theme .project-card:hover,
-body.light-theme .global-stat:hover {
-    background: rgba(255,255,255,0.95);
-    border-color: rgba(102, 126, 234, 0.3);
-}
-
-body.light-theme footer {
-    background: linear-gradient(180deg, rgba(240,240,240,0.9) 0%, rgba(220,220,220,0.95) 100%);
-    border-top-color: rgba(0,0,0,0.1);
-}
-
-body.light-theme .footer-section h3 {
-    background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-body.light-theme .footer-section p,
-body.light-theme .footer-bottom p {
-    color: #555 !important;
-}
-
-body.light-theme .social-link {
-    background: rgba(0,0,0,0.05);
-    border-color: rgba(0,0,0,0.1);
-    color: #333;
-}
-
-body.light-theme .social-link:hover {
-    background: rgba(102, 126, 234, 0.15);
-    border-color: rgba(102, 126, 234, 0.3);
-    color: #5566d3;
-}
-
-body.light-theme .carousel-overlay h2,
-body.light-theme .carousel-overlay p {
-    text-shadow: 0 2px 10px rgba(255,255,255,0.8);
-}
-
-body.light-theme .carousel-slide img {
-    filter: brightness(0.9);
-}
-
-body.light-theme .group-tab {
-    background: rgba(0,0,0,0.05);
-    border-color: rgba(0,0,0,0.1);
-    color: #555;
-}
-
-body.light-theme .group-tab:hover {
-    background: rgba(0,0,0,0.1);
-    color: #333;
-}
-
-body.light-theme .group-tab.active {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-body.light-theme .project-number,
-body.light-theme .stat-number,
-body.light-theme .global-stat-number {
-    color: #5566d3 !important;
-}
-
-body.light-theme .creator-highlight {
-    color: #5566d3 !important;
-}
-
-body.light-theme .scroll-indicator::after {
-    color: #5566d3;
-}
-
-/* ========== BOTÕES DE CONTROLE ========== */
+/* Botões de Controle (Tema e Idioma) */
 .controls-container {
     position: fixed;
     top: 20px;
@@ -727,12 +616,7 @@ body.light-theme .scroll-indicator::after {
     backdrop-filter: blur(10px);
     font-size: 0.9rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body.light-theme .control-btn {
-    background: rgba(0,0,0,0.08);
-    border-color: rgba(0,0,0,0.15);
-    color: #333;
+    flex-shrink: 0;
 }
 
 .control-btn:hover {
@@ -740,11 +624,6 @@ body.light-theme .control-btn {
     border-color: rgba(102, 126, 234, 0.5);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-}
-
-body.light-theme .control-btn:hover {
-    background: rgba(102, 126, 234, 0.2);
-    border-color: rgba(102, 126, 234, 0.4);
 }
 
 .control-btn svg {
@@ -757,65 +636,8 @@ body.light-theme .control-btn:hover {
     transform: rotate(20deg);
 }
 
-.icon-sun,
-.icon-moon,
-.icon-language {
-    flex-shrink: 0;
-}
 
-#current-lang {
-    font-weight: 700;
-    font-size: 0.85rem;
-    min-width: 25px;
-    text-align: center;
-}
-
-/* Responsive para botões */
-@media (max-width: 768px) {
-    .controls-container {
-        top: 10px;
-        right: 10px;
-        gap: 10px;
-    }
-
-    .control-btn {
-        padding: 10px 15px;
-        font-size: 0.8rem;
-    }
-
-    .control-btn span:not(#current-lang) {
-        display: none;
-    }
-
-    .control-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-}
-
-/* Animação suave para transição de tema */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Garantir que os gradientes não sejam afetados pela transição */
-.hero-title,
-.section-title,
-.about-title,
-.class-title,
-.project-title,
-.footer-section h3 {
-    transition: none;
-}
-
-
-
-
-
-
-
-
-/* ========== BOTÃO VOLTAR ========== */
+/* Botão Voltar */
 .back-btn {
     position: fixed;
     top: 20px;
@@ -835,12 +657,7 @@ body.light-theme .control-btn:hover {
     font-size: 0.9rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 10000;
-}
-
-body.light-theme .back-btn {
-    background: rgba(0,0,0,0.08);
-    border-color: rgba(0,0,0,0.15);
-    color: #333;
+    flex-shrink: 0;
 }
 
 .back-btn:hover {
@@ -848,11 +665,6 @@ body.light-theme .back-btn {
     border-color: rgba(102, 126, 234, 0.5);
     transform: translateX(-5px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-}
-
-body.light-theme .back-btn:hover {
-    background: rgba(102, 126, 234, 0.2);
-    border-color: rgba(102, 126, 234, 0.4);
 }
 
 .back-btn svg {
@@ -866,47 +678,138 @@ body.light-theme .back-btn:hover {
     transform: translateX(-3px);
 }
 
-/* Responsive para botão voltar */
+
+/* ========== MEDIA QUERIES (RESPONSIVIDADE) ========== */
+
 @media (max-width: 768px) {
+    /* Ajustes Gerais para Móvel */
+    .carousel-overlay h2 {
+        font-size: 2rem;
+    }
+
+    .carousel-overlay p {
+        font-size: 1.2rem;
+        letter-spacing: 1px; 
+    }
+
+    .carousel-arrow {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+
+    .carousel-arrow.prev {
+        left: 15px;
+    }
+
+    .carousel-arrow.next {
+        right: 15px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+
+    .project-card {
+        flex-direction: column !important;
+        gap: 30px;
+        padding: 30px;
+        margin-bottom: 80px;
+    }
+
+    .project-title {
+        font-size: 1.8rem;
+    }
+
+    .project-image {
+        min-height: 250px; 
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+    
+    /* 🎯 RESPONSIVIDADE DOS BOTÕES FIXOS */
+
+    /* Botões de Controle (Tema e Idioma) */
+    .controls-container {
+        top: 10px;
+        right: 10px;
+        gap: 8px; 
+    }
+
+    .control-btn {
+        padding: 8px 10px; 
+        font-size: 0.75rem;
+    }
+
+    .control-btn span:not(#current-lang) {
+        display: none; /* OCULTA O TEXTO */
+    }
+
+    .control-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Botão Voltar */
     .back-btn {
-        padding: 10px 15px;
-        font-size: 0.8rem;
+        padding: 8px 10px; 
+        font-size: 0.75rem;
         top: 10px;
         left: 10px;
     }
 
     .back-btn span {
-        display: none;
+        display: none; /* OCULTA O TEXTO */
     }
 
     .back-btn svg {
         width: 18px;
         height: 18px;
     }
+
+    /* 📌 BOTÃO PRINCIPAL (VISITAR SITE) */
+    .corner-container {
+        bottom: 15px; 
+        right: 15px; 
+    }
+
+    .link-site {
+        width: 55px; /* REDUZIDO PARA FICAR QUADRADO/CIRCULAR */
+        height: 55px;
+        font-size: 0; /* OCULTA O TEXTO */
+        border-radius: 50%; /* Faz ele virar um círculo perfeito */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+    }
+
+    .link-site::before {
+        content: '🔗'; /* Ícone de link no lugar do texto */
+        font-size: 1.5rem;
+        color: white;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 2; /* Certifica que o ícone está acima do ::after */
+    }
+    /* Oculta o pseudo-elemento de brilho em telas pequenas para evitar poluição visual */
+    .link-site::after {
+        opacity: 0 !important; 
+    }
 }
 
-/* ========== TEMA ESCURO E CLARO ========== */
-body {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-/* Tema Claro */
+/* ========== TEMA CLARO (Estilos de Tema) ========== */
+
 body.light-theme {
     background: #f5f5f5 !important;
     color: #333 !important;
-}
-
-body.light-theme .wave-container svg path {
-    opacity: 0.3;
-}
-
-body.light-theme .gradient-overlay {
-    background: radial-gradient(ellipse at top, rgba(102, 126, 234, 0.05), transparent 50%),
-                radial-gradient(ellipse at bottom, rgba(118, 75, 162, 0.05), transparent 50%);
-}
-
-body.light-theme .dots .dot {
-    background: rgba(102, 126, 234, 0.4);
 }
 
 body.light-theme .hero-title,
@@ -1011,44 +914,11 @@ body.light-theme .scroll-indicator::after {
     color: #5566d3;
 }
 
-/* ========== BOTÕES DE CONTROLE ========== */
-.controls-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 15px;
-    z-index: 10000;
-}
-
-.control-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    background: rgba(255,255,255,0.1);
-    border: 2px solid rgba(255,255,255,0.2);
-    border-radius: 50px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    font-size: 0.9rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* Tema Claro - Botões Fixos */
 body.light-theme .control-btn {
     background: rgba(0,0,0,0.08);
     border-color: rgba(0,0,0,0.15);
     color: #333;
-}
-
-.control-btn:hover {
-    background: rgba(102, 126, 234, 0.3);
-    border-color: rgba(102, 126, 234, 0.5);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
 }
 
 body.light-theme .control-btn:hover {
@@ -1056,63 +926,33 @@ body.light-theme .control-btn:hover {
     border-color: rgba(102, 126, 234, 0.4);
 }
 
-.control-btn svg {
-    width: 20px;
-    height: 20px;
-    transition: transform 0.3s ease;
+body.light-theme .back-btn {
+    background: rgba(0,0,0,0.08);
+    border-color: rgba(0,0,0,0.15);
+    color: #333;
 }
 
-.control-btn:hover svg {
-    transform: rotate(20deg);
+body.light-theme .back-btn:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: rgba(102, 126, 234, 0.4);
 }
 
-.icon-sun,
-.icon-moon,
-.icon-language {
-    flex-shrink: 0;
+body.light-theme .link-site {
+    background: #fff;
+    border-color: rgba(0,0,0,0.1);
+    color: #333;
 }
 
-#current-lang {
-    font-weight: 700;
-    font-size: 0.85rem;
-    min-width: 25px;
-    text-align: center;
+body.light-theme .link-site::before {
+    color: #333; /* Ajusta a cor do ícone no tema claro */
 }
 
-/* Responsive para botões */
-@media (max-width: 768px) {
-    .controls-container {
-        top: 10px;
-        right: 10px;
-        gap: 10px;
-    }
-
-    .control-btn {
-        padding: 10px 15px;
-        font-size: 0.8rem;
-    }
-
-    .control-btn span:not(#current-lang) {
-        display: none;
-    }
-
-    .control-btn svg {
-        width: 18px;
-        height: 18px;
-    }
+body.light-theme .link-site:hover {
+    background-color: #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra mais discreta no tema claro */
 }
 
-/* Animação suave para transição de tema */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Garantir que os gradientes não sejam afetados pela transição */
-.hero-title,
-.section-title,
-.about-title,
-.class-title,
-.project-title,
-.footer-section h3 {
-    transition: none;
+body.light-theme .link-site:active {
+     /* Mantém o gradiente colorido no active mesmo no tema claro para o efeito visual */
+     background: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
 }
