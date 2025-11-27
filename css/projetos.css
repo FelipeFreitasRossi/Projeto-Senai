@@ -1,13 +1,24 @@
-/* Estilos globais (sem alteração) */
+/* ======================================= */
+/* ====== TRANSIÇÕES E ESTILOS BASE ====== */
+/* ======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Adicionado aqui para aplicar a transição suave a todos os elementos */
+    /* Transição suave para a maioria dos elementos */
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Garantir que os gradientes não sejam afetados pela transição */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+    /* Transição base para o corpo (fundo e texto) */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Garante que títulos com gradientes não tenham transição de cor desnecessária */
 .hero-title,
 .section-title,
 .about-title,
@@ -17,26 +28,114 @@
     transition: none;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0a0a0a;
-    color: #fff;
-    overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+/* * NOVO EFEITO DE FUNDO (SVG Wave Background, Gradient Overlay, Floating Dots)
+ * Os z-indexs foram ajustados para que o conteúdo (z-index: 1 e acima) 
+ * fique visível sobre o fundo.
+ * A classe .wave-container deve conter as SVGs das ondas.
+ */
 
-/* Particles Canvas */
-#particles-canvas {
+/* SVG Wave Background */
+.wave-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-    pointer-events: none;
+    z-index: 0; /* Fundo de tudo */
+    overflow: hidden;
 }
 
-/* Carousel Section */
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    animation: wave 25s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave:nth-of-type(1) {
+    opacity: 0.15;
+    animation-delay: 0s;
+}
+
+.wave:nth-of-type(2) {
+    opacity: 0.1;
+    animation-delay: -5s;
+}
+
+.wave:nth-of-type(3) {
+    opacity: 0.08;
+    animation-delay: -10s;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-25%) translateY(-20px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Gradient Overlay - Acima das ondas (z-index 1) */
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at top, rgba(102, 126, 234, 0.1), transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(118, 75, 162, 0.1), transparent 50%);
+    z-index: 1; 
+}
+
+/* Floating Dots - Acima do Gradient (z-index 2) */
+.dots {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    pointer-events: none; /* Não deve bloquear cliques */
+}
+
+.dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    animation: floatDot 10s ease-in-out infinite;
+}
+
+.dot:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+.dot:nth-child(2) { top: 30%; left: 80%; animation-delay: 2s; }
+.dot:nth-child(3) { top: 60%; left: 40%; animation-delay: 4s; }
+.dot:nth-child(4) { top: 80%; left: 70%; animation-delay: 6s; }
+.dot:nth-child(5) { top: 50%; left: 15%; animation-delay: 8s; }
+
+@keyframes floatDot {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(30px, -50px);
+        opacity: 0.8;
+    }
+}
+
+/* Partículas e Shapes Antigas REMOVIDAS/SUBSTITUÍDAS */
+#particles-canvas {
+    /* REMOVIDO - Não será mais necessário */
+    display: none !important;
+}
+
+/* ======================================= */
+/* =========== CAROUSEL SECTION ========== */
+/* ======================================= */
+
 .carousel-section {
     height: 100vh;
     position: relative;
@@ -206,13 +305,16 @@ body {
     60% { transform: translateY(-5px); }
 }
 
-/* Projects Section */
+/* ======================================= */
+/* ========= PROJECTS SECTION ============ */
+/* ======================================= */
+
 .projects-section {
     padding: 100px 20px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 10; /* Aumentado para garantir que o conteúdo fique acima do fundo */
 }
 
 .section-title {
@@ -266,6 +368,7 @@ body {
     cursor: pointer;
     transition: transform 0.5s ease;
     transform-style: preserve-3d;
+    z-index: 2; 
 }
 
 .project-image::before {
@@ -279,6 +382,7 @@ body {
     transform: rotate(45deg);
     z-index: 1;
 }
+
 .project-image:hover::before {
     animation: shine 1.5s ease-in-out; 
 }
@@ -320,7 +424,7 @@ body {
     font-size: 2rem;
     color: white;
     transition: all 0.3s ease;
-    z-index: 2;
+    z-index: 3; 
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -346,6 +450,8 @@ body {
     flex-direction: column;
     justify-content: center;
     transform-style: preserve-3d;
+    position: relative; 
+    z-index: 5; 
 }
 
 .project-number {
@@ -387,13 +493,29 @@ body {
     }
 }
 
+/* ======================================= */
+/* ====== ESTILOS DOS BOTÕES DO CARD ===== */
+/* ======================================= */
+
+.botoes-container {
+    position: relative;
+    z-index: 10; 
+    display: flex;
+    gap: 15px; 
+    margin-top: 20px;
+}
+
 .project-link {
-    /* ... (Estilos de link de projeto) */
-    display: inline-block;
-    align-self: flex-start; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-shrink: 1;
+    
     position: relative;
     overflow: hidden; 
-    padding: 15px 40px; 
+    padding: 15px 25px;
+    
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
     color: white; 
     text-decoration: none; 
@@ -401,6 +523,17 @@ body {
     font-weight: 600; 
     transition: all 0.3s ease; 
     animation: slideInLeft 0.6s ease 0.3s backwards; 
+    z-index: 1;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+
+.project-link.link-site {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); 
+}
+
+.project-link.link-site:hover {
+    box-shadow: 0 10px 30px rgba(0, 114, 255, 0.4); 
 }
 
 .project-link::before {
@@ -412,6 +545,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     transition: left 0.5s ease; 
+    z-index: 0;
 }
 
 .project-link:hover::before {
@@ -419,11 +553,10 @@ body {
 }
 
 .project-link:hover {
-    transform: translateY(-3px) scale(1.05); 
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); 
 }
 
-/* 3D Card effect on hover */
 .project-card:hover .project-content {
     transform: translateZ(20px);
 }
@@ -432,7 +565,10 @@ body {
     transform: translateZ(30px) scale(1.05);
 }
 
-/* Footer */
+/* ======================================= */
+/* =========== FOOTER SECTION ============ */
+/* ======================================= */
+
 footer {
     padding: 80px 20px 40px;
     background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
@@ -524,74 +660,10 @@ footer {
     font-weight: 600;
 }
 
-/* ========== BOTÕES FIXOS E BOTÃO PRINCIPAL (NOVO ESTILO) ========== */
+/* ========================================================== */
+/* ======== BOTÕES FIXOS (CONTROLES, VOLTAR) ================ */
+/* ========================================================== */
 
-/* Posicionamento do botão principal no canto inferior direito */
-.corner-container {
-    position: fixed;
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 10000; 
-}
-
-/* 🎯 NOVO ESTILO: Aplicando os estilos 'button' à classe .link-site, com ajustes para fixação */
-.link-site {
-    /* Estilos do botão original */
-    width: 165px;
-    height: 62px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 17px;
-    border-radius: 1rem;
-    border: 1px solid white; /* Borda branca explícita */
-    position: relative;
-    background: #100720;
-    transition: all 0.2s ease; /* Alterado de 0.1s para suavizar mais as transições */
-    
-    /* Adições para centralizar texto e flex-shrink */
-    text-decoration: none; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    flex-shrink: 0; 
-    font-weight: 600; /* Adicionado para destacar */
-}
-
-.link-site::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    /* O gradiente não está presente na definição original,
-       mas vamos adicionar um sutil no hover/active para dar o efeito de brilho */
-    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,0.5) 17.8%, rgba(2,245,255,0.5) 100.2% );
-    filter: blur(15px);
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0; /* Invisível por padrão */
-    transition: opacity 0.3s ease;
-    border-radius: inherit;
-}
-
-/* Efeito ao clicar (com o gradiente) */
-.link-site:active {
-    transform: scale(0.9) rotate(3deg);
-    background: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
-    transition: 0.2s;
-}
-
-/* Efeito Hover: Aumenta a opacidade do brilho interno */
-.link-site:hover::after {
-    opacity: 1; 
-}
-
-.link-site:hover {
-    /* Adicionado box-shadow sutil no hover */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-/* Botões de Controle (Tema e Idioma) */
 .controls-container {
     position: fixed;
     top: 20px;
@@ -636,8 +708,6 @@ footer {
     transform: rotate(20deg);
 }
 
-
-/* Botão Voltar */
 .back-btn {
     position: fixed;
     top: 20px;
@@ -678,24 +748,41 @@ footer {
     transform: translateX(-3px);
 }
 
+/* Floating shapes - REMOVIDAS/SUBSTITUÍDAS pelas 'dots' */
+.floating-shape {
+    display: none !important;
+}
 
-/* ========== MEDIA QUERIES (RESPONSIVIDADE) ========== */
+/* ========================================================== */
+/* ======== MEDIA QUERIES (RESPONSIVIDADE - MOBILE) ========= */
+/* ========================================================== */
 
 @media (max-width: 768px) {
+    /* ===== FIX MOBILE: OCULTA NOMES DOS GRUPOS ===== */
+    .carousel-header .group-tabs {
+        display: none !important;
+    }
+    
+    /* Ajusta o espaçamento do carousel sem o header */
+    .carousel-section {
+        padding-top: 0;
+    }
+    
     /* Ajustes Gerais para Móvel */
     .carousel-overlay h2 {
         font-size: 2rem;
     }
 
     .carousel-overlay p {
-        font-size: 1.2rem;
-        letter-spacing: 1px; 
+        font-size: 1.4rem;
+        letter-spacing: 2px;
     }
 
     .carousel-arrow {
         width: 45px;
         height: 45px;
         font-size: 1.5rem;
+        z-index: 200 !important;
     }
 
     .carousel-arrow.prev {
@@ -730,11 +817,22 @@ footer {
         font-size: 1rem;
     }
     
-    /* 🎯 RESPONSIVIDADE DOS BOTÕES FIXOS */
+    /* RESPONSIVIDADE DOS BOTÕES DENTRO DO CARD (Empilhamento) */
+    .botoes-container {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-    /* Botões de Controle (Tema e Idioma) */
+    .project-link {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px 25px;
+        white-space: normal;
+    }
+
+    /* RESPONSIVIDADE DOS BOTÕES FIXOS */
     .controls-container {
-        top: 10px;
+        top: 15px;
         right: 10px;
         gap: 8px; 
     }
@@ -745,7 +843,7 @@ footer {
     }
 
     .control-btn span:not(#current-lang) {
-        display: none; /* OCULTA O TEXTO */
+        display: none;
     }
 
     .control-btn svg {
@@ -753,70 +851,58 @@ footer {
         height: 18px;
     }
 
-    /* Botão Voltar */
     .back-btn {
         padding: 8px 10px; 
         font-size: 0.75rem;
-        top: 10px;
+        top: 15px;
         left: 10px;
     }
 
     .back-btn span {
-        display: none; /* OCULTA O TEXTO */
+        display: none;
     }
 
     .back-btn svg {
         width: 18px;
         height: 18px;
     }
-
-    /* 📌 BOTÃO PRINCIPAL (VISITAR SITE) */
-    .corner-container {
-        bottom: 15px; 
-        right: 15px; 
-    }
-
-    .link-site {
-        width: 55px; /* REDUZIDO PARA FICAR QUADRADO/CIRCULAR */
-        height: 55px;
-        font-size: 0; /* OCULTA O TEXTO */
-        border-radius: 50%; /* Faz ele virar um círculo perfeito */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-    }
-
-    .link-site::before {
-        content: '🔗'; /* Ícone de link no lugar do texto */
-        font-size: 1.5rem;
-        color: white;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        z-index: 2; /* Certifica que o ícone está acima do ::after */
-    }
-    /* Oculta o pseudo-elemento de brilho em telas pequenas para evitar poluição visual */
-    .link-site::after {
-        opacity: 0 !important; 
-    }
 }
 
-
-/* ========== TEMA CLARO (Estilos de Tema) ========== */
+/* ======================================= */
+/* =========== ESTILOS TEMA CLARO ======== */
+/* ======================================= */
 
 body.light-theme {
     background: #f5f5f5 !important;
     color: #333 !important;
 }
 
+/* Ajuste do NOVO fundo para o tema claro */
+body.light-theme .wave-container {
+    z-index: 0;
+}
+body.light-theme .wave:nth-of-type(1) {
+    opacity: 0.3; /* Aumenta a opacidade para ser visível em fundo claro */
+    /* Você pode mudar a cor da onda aqui se usar SVG inline ou aplicar um filtro SVG */
+}
+
+body.light-theme .gradient-overlay {
+    background: radial-gradient(ellipse at top, rgba(102, 126, 234, 0.2), transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(118, 75, 162, 0.2), transparent 50%);
+    z-index: 1;
+}
+
+body.light-theme .dot {
+    background: rgba(102, 126, 234, 0.5);
+}
+/* Fim do ajuste do NOVO fundo */
+
 body.light-theme .hero-title,
 body.light-theme .section-title,
 body.light-theme .about-title,
 body.light-theme .class-title,
-body.light-theme .project-title {
+body.light-theme .project-title,
+body.light-theme .footer-section h3 {
     background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -828,8 +914,18 @@ body.light-theme .class-description,
 body.light-theme .project-description,
 body.light-theme .about-text,
 body.light-theme .stat-label,
-body.light-theme .global-stat-label {
+body.light-theme .global-stat-label,
+body.light-theme .footer-section p,
+body.light-theme .footer-bottom p {
     color: #555 !important;
+}
+
+body.light-theme .project-number,
+body.light-theme .stat-number,
+body.light-theme .global-stat-number,
+body.light-theme .creator-highlight,
+body.light-theme .scroll-indicator::after {
+    color: #5566d3 !important;
 }
 
 body.light-theme .class-card,
@@ -849,18 +945,6 @@ body.light-theme .global-stat:hover {
 body.light-theme footer {
     background: linear-gradient(180deg, rgba(240,240,240,0.9) 0%, rgba(220,220,220,0.95) 100%);
     border-top-color: rgba(0,0,0,0.1);
-}
-
-body.light-theme .footer-section h3 {
-    background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-body.light-theme .footer-section p,
-body.light-theme .footer-bottom p {
-    color: #555 !important;
 }
 
 body.light-theme .social-link {
@@ -900,21 +984,6 @@ body.light-theme .group-tab.active {
     color: white;
 }
 
-body.light-theme .project-number,
-body.light-theme .stat-number,
-body.light-theme .global-stat-number {
-    color: #5566d3 !important;
-}
-
-body.light-theme .creator-highlight {
-    color: #5566d3 !important;
-}
-
-body.light-theme .scroll-indicator::after {
-    color: #5566d3;
-}
-
-/* Tema Claro - Botões Fixos */
 body.light-theme .control-btn {
     background: rgba(0,0,0,0.08);
     border-color: rgba(0,0,0,0.15);
@@ -937,22 +1006,15 @@ body.light-theme .back-btn:hover {
     border-color: rgba(102, 126, 234, 0.4);
 }
 
-body.light-theme .link-site {
-    background: #fff;
-    border-color: rgba(0,0,0,0.1);
-    color: #333;
+body.light-theme .project-link {
+    background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
+    color: white;
 }
 
-body.light-theme .link-site::before {
-    color: #333; /* Ajusta a cor do ícone no tema claro */
+body.light-theme .project-link.link-site {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); 
 }
 
-body.light-theme .link-site:hover {
-    background-color: #eee;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra mais discreta no tema claro */
-}
-
-body.light-theme .link-site:active {
-     /* Mantém o gradiente colorido no active mesmo no tema claro para o efeito visual */
-     background: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
+body.light-theme .project-link:hover {
+    box-shadow: 0 10px 30px rgba(85, 102, 211, 0.4); 
 }
