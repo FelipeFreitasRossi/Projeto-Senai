@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Transição suave para a maioria dos elementos */
+    /* Transição suave */
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -14,7 +14,6 @@ body {
     background: #0a0a0a;
     color: #fff;
     overflow-x: hidden;
-    /* Transição base para o corpo (fundo e texto) */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -35,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Fundo de tudo */
+    z-index: 0;
     overflow: hidden;
 }
 
@@ -46,20 +45,9 @@ body {
     animation: wave 25s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
 }
 
-.wave:nth-of-type(1) {
-    opacity: 0.15;
-    animation-delay: 0s;
-}
-
-.wave:nth-of-type(2) {
-    opacity: 0.1;
-    animation-delay: -5s;
-}
-
-.wave:nth-of-type(3) {
-    opacity: 0.08;
-    animation-delay: -10s;
-}
+.wave:nth-of-type(1) { opacity: 0.15; animation-delay: 0s; }
+.wave:nth-of-type(2) { opacity: 0.1; animation-delay: -5s; }
+.wave:nth-of-type(3) { opacity: 0.08; animation-delay: -10s; }
 
 @keyframes wave {
     0% { transform: translateX(0) translateY(0); }
@@ -67,7 +55,7 @@ body {
     100% { transform: translateX(-50%) translateY(0); }
 }
 
-/* Gradient Overlay - Acima das ondas (z-index 1) */
+/* Gradient Overlay */
 .gradient-overlay {
     position: fixed;
     top: 0;
@@ -79,13 +67,13 @@ body {
     z-index: 1; 
 }
 
-/* Floating Dots - Acima do Gradient (z-index 2) */
+/* Floating Dots */
 .dots {
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: 2; 
-    pointer-events: none; /* Não deve bloquear cliques */
+    pointer-events: none;
 }
 
 .dot {
@@ -148,7 +136,7 @@ body {
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
+    /* Removido blur para performance */
 }
 
 .group-tab:hover {
@@ -232,7 +220,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 50;
-    backdrop-filter: blur(10px);
+    /* Removido blur */
 }
 
 .carousel-arrow:hover {
@@ -288,38 +276,39 @@ body {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: fadeInUp 1s ease;
 }
 
+/* OTIMIZAÇÃO: REMOVIDO EFEITOS PESADOS 3D E BLUR */
 .project-card {
     display: flex;
     gap: 60px;
     margin-bottom: 150px;
     opacity: 0;
-    transform: translateY(50px) rotateX(10deg);
-    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(255,255,255,0.02);
+    /* Animação simplificada */
+    transform: translateY(30px); 
+    transition: all 0.6s ease;
+    
+    /* Fundo sólido semi-transparente ao invés de Blur */
+    background: rgba(20, 20, 20, 0.95); 
     border-radius: 20px;
     padding: 40px;
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
-    transform-style: preserve-3d;
-    perspective: 1000px;
 }
 
 .project-card.visible {
     opacity: 1;
-    transform: translateY(0) rotateX(0deg);
+    transform: translateY(0);
 }
 
 .project-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
-    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(102, 126, 234, 0.5);
 }
 
 .project-card:nth-child(even) { flex-direction: row-reverse; }
@@ -331,31 +320,14 @@ body {
     border-radius: 15px;
     min-height: 400px;
     cursor: pointer;
-    transition: transform 0.5s ease;
-    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
     z-index: 2; 
 }
 
-.project-image::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.3), transparent);
-    transform: rotate(45deg);
-    z-index: 1;
-}
+/* Removido o efeito de brilho 3D pesado */
+.project-image::before { display: none; }
 
-.project-image:hover::before { animation: shine 1.5s ease-in-out; }
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
-.project-image:hover { transform: scale(1.05) rotateY(5deg); }
+.project-image:hover { transform: scale(1.02); }
 
 .project-image img {
     width: 100%;
@@ -366,7 +338,7 @@ body {
 }
 
 .project-image:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
     filter: brightness(1);
 }
 
@@ -390,19 +362,13 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { 
-        transform: translate(-50%, -50%) scale(1);
-        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
-    }
-    50% { 
-        transform: translate(-50%, -50%) scale(1.05);
-        box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
-    }
+    0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+    50% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 0 20px rgba(102, 126, 234, 0); }
 }
 
 .project-image:hover .play-button {
     background: rgba(102, 126, 234, 1);
-    transform: translate(-50%, -50%) scale(1.2) rotate(360deg);
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .project-content {
@@ -410,7 +376,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transform-style: preserve-3d;
     position: relative; 
     z-index: 5; 
 }
@@ -421,15 +386,13 @@ body {
     font-weight: 700;
     margin-bottom: 10px;
     letter-spacing: 2px;
-    animation: slideInLeft 0.6s ease;
 }
 
 .project-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
     font-weight: 700;
-    animation: slideInLeft 0.6s ease 0.1s backwards;
-    background: linear-gradient(135deg, #fff 0%, #667eea 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -440,12 +403,6 @@ body {
     line-height: 1.8;
     color: rgba(255,255,255,0.8);
     margin-bottom: 30px;
-    animation: slideInLeft 0.6s ease 0.2s backwards;
-}
-
-@keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
 }
 
 /* ======================================= */
@@ -475,7 +432,6 @@ body {
     border-radius: 50px; 
     font-weight: 600; 
     transition: all 0.3s ease; 
-    animation: slideInLeft 0.6s ease 0.3s backwards; 
     z-index: 1;
     white-space: nowrap;
     font-size: 0.95rem;
@@ -487,27 +443,11 @@ body {
 
 .project-link.link-site:hover { box-shadow: 0 10px 30px rgba(0, 114, 255, 0.4); }
 
-.project-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%; 
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease; 
-    z-index: 0;
-}
-
-.project-link:hover::before { left: 100%; }
-
+/* Simplificação da animação do botão */
 .project-link:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); 
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); 
 }
-
-.project-card:hover .project-content { transform: translateZ(20px); }
-.project-card:hover .project-image { transform: translateZ(30px) scale(1.05); }
 
 /* ======================================= */
 /* =========== FOOTER SECTION ============ */
@@ -617,7 +557,7 @@ footer {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    /* Removido blur */
     font-size: 0.9rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     flex-shrink: 0;
@@ -648,7 +588,7 @@ footer {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    /* Removido blur */
     font-size: 0.9rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 10000;
@@ -672,38 +612,27 @@ footer {
 /* ========================================================== */
 
 @media (max-width: 768px) {
-    /* ===== FIX MOBILE: CARROSSEL AINDA MENOR (40vh) ===== */
+    /* ===== FIX MOBILE: CARROSSEL 40vh (Panorâmico) ===== */
     .carousel-section, 
     .carousel-container {
-        /* Define 40% da altura da tela para ficar panorâmico e não cortar */
         height: 40vh !important;
         min-height: 250px;
     }
 
-    .carousel-slide img {
-        object-position: center; 
-    }
+    .carousel-slide img { object-position: center; }
     
     .carousel-header .group-tabs { display: none !important; }
     
     .carousel-section { padding-top: 0; }
     
-    /* Ajustes finos de texto */
     .carousel-overlay {
         width: 95%;
         padding: 0 10px;
         top: 50%;
     }
-    .carousel-overlay h2 { 
-        font-size: 1.5rem; /* Título menor */
-        margin-bottom: 5px; 
-    }
-    .carousel-overlay p { 
-        font-size: 1rem; 
-        letter-spacing: 1px;
-    }
+    .carousel-overlay h2 { font-size: 1.5rem; margin-bottom: 5px; }
+    .carousel-overlay p { font-size: 1rem; letter-spacing: 1px; }
 
-    /* Setas */
     .carousel-arrow {
         width: 35px;
         height: 35px;
@@ -713,22 +642,22 @@ footer {
     .carousel-arrow.prev { left: 5px; }
     .carousel-arrow.next { right: 5px; }
     
-    /* Indicador de scroll */
-    .scroll-indicator {
-        bottom: 10px;
-    }
-    .scroll-indicator::after {
-        font-size: 1.5rem;
-    }
+    .scroll-indicator { bottom: 10px; }
+    .scroll-indicator::after { font-size: 1.5rem; }
 
-    /* Demais ajustes mobile originais */
     .section-title { font-size: 2rem; margin-bottom: 50px; }
+    
+    /* Cards Mobile: Otimizados sem efeitos pesados */
     .project-card {
         flex-direction: column !important;
         gap: 30px;
         padding: 30px;
         margin-bottom: 80px;
+        /* Garante que no mobile não tenha transform 3D */
+        transform: none !important; 
+        opacity: 1 !important;
     }
+    
     .project-title { font-size: 1.8rem; }
     .project-image { min-height: 250px; }
     .project-description { font-size: 1rem; }
@@ -766,13 +695,14 @@ body.light-theme .gradient-overlay {
 
 body.light-theme .dot { background: rgba(102, 126, 234, 0.5); }
 
+/* Títulos Escuros para Leitura */
 body.light-theme .hero-title,
 body.light-theme .section-title,
 body.light-theme .about-title,
 body.light-theme .class-title,
 body.light-theme .project-title,
 body.light-theme .footer-section h3 {
-    background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
+    background: linear-gradient(135deg, #4A00E0 0%, #302b63 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -786,7 +716,7 @@ body.light-theme .stat-label,
 body.light-theme .global-stat-label,
 body.light-theme .footer-section p,
 body.light-theme .footer-bottom p {
-    color: #555 !important;
+    color: #333 !important;
 }
 
 body.light-theme .project-number,
@@ -794,21 +724,23 @@ body.light-theme .stat-number,
 body.light-theme .global-stat-number,
 body.light-theme .creator-highlight,
 body.light-theme .scroll-indicator::after {
-    color: #5566d3 !important;
+    color: #4A00E0 !important;
 }
 
+/* CORREÇÃO DO CARD NO TEMA CLARO: Fundo Branco Sólido */
 body.light-theme .class-card,
 body.light-theme .project-card,
 body.light-theme .global-stat {
-    background: rgba(255,255,255,0.8);
+    background: #ffffff; /* Fundo sólido branco, muito mais leve */
     border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 body.light-theme .class-card:hover,
 body.light-theme .project-card:hover,
 body.light-theme .global-stat:hover {
-    background: rgba(255,255,255,0.95);
     border-color: rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 body.light-theme footer {
@@ -829,13 +761,17 @@ body.light-theme .social-link:hover {
 }
 
 body.light-theme .carousel-overlay h2,
-body.light-theme .carousel-overlay p { text-shadow: 0 2px 10px rgba(255,255,255,0.8); }
+body.light-theme .carousel-overlay p {
+    color: #fff !important; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8) !important;
+}
+
 body.light-theme .carousel-slide img { filter: brightness(0.9); }
 
 body.light-theme .group-tab {
-    background: rgba(0,0,0,0.05);
-    border-color: rgba(0,0,0,0.1);
-    color: #555;
+    background: rgba(111, 110, 110, 0.282);
+    border-color: rgb(169, 160, 160);
+    color: #ffffff;
 }
 
 body.light-theme .group-tab:hover {
@@ -848,17 +784,21 @@ body.light-theme .group-tab.active {
     color: white;
 }
 
+/* CORREÇÃO SOLICITADA: Botões de Controle no Tema Claro */
+/* Agora com Fundo Branco e Texto PRETO */
 body.light-theme .control-btn,
 body.light-theme .back-btn {
-    background: rgba(0,0,0,0.08);
-    border-color: rgba(0,0,0,0.15);
-    color: #333;
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    color: #000000; /* Texto preto para leitura fácil */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 body.light-theme .control-btn:hover,
 body.light-theme .back-btn:hover {
-    background: rgba(102, 126, 234, 0.2);
+    background: #f0f0f0;
     border-color: rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 body.light-theme .project-link {
