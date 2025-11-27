@@ -1,20 +1,12 @@
-/* Estilos globais (sem alteração) */
+/* ======================================= */
+/* ====== TRANSIÇÕES E ESTILOS BASE ====== */
+/* ======================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Adicionado aqui para aplicar a transição suave a todos os elementos */
+    /* Transição suave para a maioria dos elementos */
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Garantir que os gradientes não sejam afetados pela transição */
-.hero-title,
-.section-title,
-.about-title,
-.class-title,
-.project-title,
-.footer-section h3 {
-    transition: none;
 }
 
 body {
@@ -22,7 +14,18 @@ body {
     background: #0a0a0a;
     color: #fff;
     overflow-x: hidden;
+    /* Transição base para o corpo (fundo e texto) */
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Garante que títulos com gradientes não tenham transição de cor desnecessária */
+.hero-title,
+.section-title,
+.about-title,
+.class-title,
+.project-title,
+.footer-section h3 {
+    transition: none;
 }
 
 /* Particles Canvas */
@@ -36,7 +39,10 @@ body {
     pointer-events: none;
 }
 
-/* Carousel Section */
+/* ======================================= */
+/* =========== CAROUSEL SECTION ========== */
+/* ======================================= */
+
 .carousel-section {
     height: 100vh;
     position: relative;
@@ -206,7 +212,10 @@ body {
     60% { transform: translateY(-5px); }
 }
 
-/* Projects Section */
+/* ======================================= */
+/* ========= PROJECTS SECTION ============ */
+/* ======================================= */
+
 .projects-section {
     padding: 100px 20px;
     max-width: 1400px;
@@ -266,6 +275,7 @@ body {
     cursor: pointer;
     transition: transform 0.5s ease;
     transform-style: preserve-3d;
+    z-index: 2; 
 }
 
 .project-image::before {
@@ -320,7 +330,7 @@ body {
     font-size: 2rem;
     color: white;
     transition: all 0.3s ease;
-    z-index: 2;
+    z-index: 3; 
     animation: pulse 2s ease-in-out infinite;
 }
 
@@ -346,6 +356,8 @@ body {
     flex-direction: column;
     justify-content: center;
     transform-style: preserve-3d;
+    position: relative; 
+    z-index: 5; 
 }
 
 .project-number {
@@ -387,13 +399,31 @@ body {
     }
 }
 
+/* ======================================= */
+/* 3. ESTILOS DOS BOTÕES DENTRO DO CARD  */
+/* ======================================= */
+
+.botoes-container {
+    position: relative;
+    z-index: 10; 
+    display: flex; /* CHAVE: Habilita o alinhamento horizontal */
+    gap: 15px; 
+    /* flex-wrap: wrap; REMOVIDO para forçar o layout horizontal/vertical */
+    margin-top: 20px; /* Adiciona um espaço da descrição */
+}
+
 .project-link {
-    /* ... (Estilos de link de projeto) */
-    display: inline-block;
-    align-self: flex-start; 
+    display: flex; /* Muda para flex para centralizar melhor o conteúdo */
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* CHAVE: Faz com que os 3 botões compartilhem a largura igualmente */
+    flex-shrink: 1;
+    
     position: relative;
     overflow: hidden; 
-    padding: 15px 40px; 
+    padding: 15px 25px; /* Reduz o padding horizontal para 3 botões */
+    
+    /* Estilos Visuais Comuns */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
     color: white; 
     text-decoration: none; 
@@ -401,8 +431,22 @@ body {
     font-weight: 600; 
     transition: all 0.3s ease; 
     animation: slideInLeft 0.6s ease 0.3s backwards; 
+    z-index: 1;
+    white-space: nowrap; /* Evita a quebra do texto do botão */
+    font-size: 0.95rem; /* Ajuste para caber 3 botões */
 }
 
+/* Estilo específico para o novo botão 'Visitar site' */
+/* Mantendo o gradiente customizado do seu .link-site, mas ajustando para caber */
+.project-link.link-site {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); 
+}
+
+.project-link.link-site:hover {
+    box-shadow: 0 10px 30px rgba(0, 114, 255, 0.4); 
+}
+
+/* Efeito Hover e Brilho (mantido de sua implementação) */
 .project-link::before {
     content: '';
     position: absolute;
@@ -412,6 +456,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     transition: left 0.5s ease; 
+    z-index: 0;
 }
 
 .project-link:hover::before {
@@ -419,11 +464,11 @@ body {
 }
 
 .project-link:hover {
-    transform: translateY(-3px) scale(1.05); 
+    transform: translateY(-3px) scale(1.02); /* Escala um pouco menos para caber */
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); 
 }
 
-/* 3D Card effect on hover */
+/* Efeitos 3D (mantidos) */
 .project-card:hover .project-content {
     transform: translateZ(20px);
 }
@@ -432,7 +477,10 @@ body {
     transform: translateZ(30px) scale(1.05);
 }
 
-/* Footer */
+/* ======================================= */
+/* =========== FOOTER SECTION ============ */
+/* ======================================= */
+
 footer {
     padding: 80px 20px 40px;
     background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
@@ -524,72 +572,12 @@ footer {
     font-weight: 600;
 }
 
-/* ========== BOTÕES FIXOS E BOTÃO PRINCIPAL (NOVO ESTILO) ========== */
+/* ========================================================== */
+/* ======== BOTÕES FIXOS (CONTROLES, VOLTAR) ================ */
+/* ========================================================== */
 
-/* Posicionamento do botão principal no canto inferior direito */
-.corner-container {
-    position: fixed;
-    bottom: 30px; 
-    right: 30px; 
-    z-index: 10000; 
-}
-
-/* 🎯 NOVO ESTILO: Aplicando os estilos 'button' à classe .link-site, com ajustes para fixação */
-.link-site {
-    /* Estilos do botão original */
-    width: 165px;
-    height: 62px;
-    cursor: pointer;
-    color: #fff;
-    font-size: 17px;
-    border-radius: 1rem;
-    border: 1px solid white; /* Borda branca explícita */
-    position: relative;
-    background: #100720;
-    transition: all 0.2s ease; /* Alterado de 0.1s para suavizar mais as transições */
-    
-    /* Adições para centralizar texto e flex-shrink */
-    text-decoration: none; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    flex-shrink: 0; 
-    font-weight: 600; /* Adicionado para destacar */
-}
-
-.link-site::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    /* O gradiente não está presente na definição original,
-       mas vamos adicionar um sutil no hover/active para dar o efeito de brilho */
-    background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,0.5) 17.8%, rgba(2,245,255,0.5) 100.2% );
-    filter: blur(15px);
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0; /* Invisível por padrão */
-    transition: opacity 0.3s ease;
-    border-radius: inherit;
-}
-
-/* Efeito ao clicar (com o gradiente) */
-.link-site:active {
-    transform: scale(0.9) rotate(3deg);
-    background: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
-    transition: 0.2s;
-}
-
-/* Efeito Hover: Aumenta a opacidade do brilho interno */
-.link-site:hover::after {
-    opacity: 1; 
-}
-
-.link-site:hover {
-    /* Adicionado box-shadow sutil no hover */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
+/* REMOÇÃO DO BOTÃO VISITAR SITE FIXO */
+/* O .corner-container e o .link-site FIXO foram removidos daqui */
 
 /* Botões de Controle (Tema e Idioma) */
 .controls-container {
@@ -678,8 +666,9 @@ footer {
     transform: translateX(-3px);
 }
 
-
-/* ========== MEDIA QUERIES (RESPONSIVIDADE) ========== */
+/* ========================================================== */
+/* ======== 4. MEDIA QUERIES (RESPONSIVIDADE - MOBILE) ====== */
+/* ========================================================== */
 
 @media (max-width: 768px) {
     /* Ajustes Gerais para Móvel */
@@ -730,7 +719,20 @@ footer {
         font-size: 1rem;
     }
     
-    /* 🎯 RESPONSIVIDADE DOS BOTÕES FIXOS */
+    /* RESPONSIVIDADE DOS BOTÕES DENTRO DO CARD (Empilhamento) */
+    .botoes-container {
+        flex-direction: column; /* CHAVE: Empilha os botões verticalmente */
+        gap: 10px; /* Ajusta o espaçamento vertical */
+    }
+
+    .project-link {
+        width: 100%; /* Garante que ocupem a largura total */
+        font-size: 1rem; /* Melhora a legibilidade */
+        padding: 12px 25px;
+        white-space: normal; /* Permite a quebra de linha se o texto for longo */
+    }
+
+    /* RESPONSIVIDADE DOS BOTÕES FIXOS */
 
     /* Botões de Controle (Tema e Idioma) */
     .controls-container {
@@ -769,43 +771,14 @@ footer {
         width: 18px;
         height: 18px;
     }
-
-    /* 📌 BOTÃO PRINCIPAL (VISITAR SITE) */
-    .corner-container {
-        bottom: 15px; 
-        right: 15px; 
-    }
-
-    .link-site {
-        width: 55px; /* REDUZIDO PARA FICAR QUADRADO/CIRCULAR */
-        height: 55px;
-        font-size: 0; /* OCULTA O TEXTO */
-        border-radius: 50%; /* Faz ele virar um círculo perfeito */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-    }
-
-    .link-site::before {
-        content: '🔗'; /* Ícone de link no lugar do texto */
-        font-size: 1.5rem;
-        color: white;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        z-index: 2; /* Certifica que o ícone está acima do ::after */
-    }
-    /* Oculta o pseudo-elemento de brilho em telas pequenas para evitar poluição visual */
-    .link-site::after {
-        opacity: 0 !important; 
-    }
+    
+    /* OBS: O código para o botão fixo .corner-container/.link-site foi removido */
 }
 
 
-/* ========== TEMA CLARO (Estilos de Tema) ========== */
+/* ======================================= */
+/* =========== ESTILOS TEMA CLARO ======== */
+/* ======================================= */
 
 body.light-theme {
     background: #f5f5f5 !important;
@@ -816,7 +789,8 @@ body.light-theme .hero-title,
 body.light-theme .section-title,
 body.light-theme .about-title,
 body.light-theme .class-title,
-body.light-theme .project-title {
+body.light-theme .project-title,
+body.light-theme .footer-section h3 {
     background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -828,8 +802,18 @@ body.light-theme .class-description,
 body.light-theme .project-description,
 body.light-theme .about-text,
 body.light-theme .stat-label,
-body.light-theme .global-stat-label {
+body.light-theme .global-stat-label,
+body.light-theme .footer-section p,
+body.light-theme .footer-bottom p {
     color: #555 !important;
+}
+
+body.light-theme .project-number,
+body.light-theme .stat-number,
+body.light-theme .global-stat-number,
+body.light-theme .creator-highlight,
+body.light-theme .scroll-indicator::after {
+    color: #5566d3 !important;
 }
 
 body.light-theme .class-card,
@@ -849,18 +833,6 @@ body.light-theme .global-stat:hover {
 body.light-theme footer {
     background: linear-gradient(180deg, rgba(240,240,240,0.9) 0%, rgba(220,220,220,0.95) 100%);
     border-top-color: rgba(0,0,0,0.1);
-}
-
-body.light-theme .footer-section h3 {
-    background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-body.light-theme .footer-section p,
-body.light-theme .footer-bottom p {
-    color: #555 !important;
 }
 
 body.light-theme .social-link {
@@ -900,20 +872,6 @@ body.light-theme .group-tab.active {
     color: white;
 }
 
-body.light-theme .project-number,
-body.light-theme .stat-number,
-body.light-theme .global-stat-number {
-    color: #5566d3 !important;
-}
-
-body.light-theme .creator-highlight {
-    color: #5566d3 !important;
-}
-
-body.light-theme .scroll-indicator::after {
-    color: #5566d3;
-}
-
 /* Tema Claro - Botões Fixos */
 body.light-theme .control-btn {
     background: rgba(0,0,0,0.08);
@@ -937,22 +895,16 @@ body.light-theme .back-btn:hover {
     border-color: rgba(102, 126, 234, 0.4);
 }
 
-body.light-theme .link-site {
-    background: #fff;
-    border-color: rgba(0,0,0,0.1);
-    color: #333;
+/* Tema Claro - Botões do Projeto (Com o novo link-site) */
+body.light-theme .project-link {
+    background: linear-gradient(135deg, #5566d3 0%, #663d8f 100%);
+    color: white;
+}
+body.light-theme .project-link.link-site {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); 
+}
+body.light-theme .project-link:hover {
+    box-shadow: 0 10px 30px rgba(85, 102, 211, 0.4); 
 }
 
-body.light-theme .link-site::before {
-    color: #333; /* Ajusta a cor do ícone no tema claro */
-}
-
-body.light-theme .link-site:hover {
-    background-color: #eee;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra mais discreta no tema claro */
-}
-
-body.light-theme .link-site:active {
-     /* Mantém o gradiente colorido no active mesmo no tema claro para o efeito visual */
-     background: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2% );
-}
+/* Os estilos para o .link-site fixo e o .corner-container foram removidos dos estilos base e do light-theme */
