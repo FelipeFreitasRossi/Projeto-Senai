@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENAI - 3TDS</title>
 
-    <link rel="stylesheet" href="/css/projetos.css">
-
-    <script src="/js/projetos.js" defer></script>
-    <script src="/js/i18n.js" defer></script>
+    <link rel="stylesheet" href="../css/projetos.css">
+    <script src="../js/Translate3TDS.js"></script> 
+    <script src="../js/projetos.js" defer></script>
 </head>
 <body>
-    <button class="back-btn" onclick="window.history.back()" aria-label="Voltar">
+
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Voltar">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
         </svg>
@@ -39,80 +39,72 @@
 
         <button class="control-btn" id="language-toggle" aria-label="Alternar idioma">
             <svg class="icon-language" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" fill="currentColor"/>
+                <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04z" fill="currentColor"/>
             </svg>
             <span id="current-lang">PT</span>
         </button>
     </div>
 
-    <canvas id="particles-canvas"></canvas>
-
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
-
     <section class="carousel-section">
         <div class="carousel-header">
             <div class="group-tabs">
-                <div class="group-tab active" data-slide="1">ControlTech</div>
-                <div class="group-tab" data-slide="2">IOTurn</div>
-                <div class="group-tab" data-slide="3">StockBot</div>
-                <div class="group-tab" data-slide="4">Lyria</div>
-                <div class="group-tab" data-slide="5">SENAI Community</div>
-                <div class="group-tab" data-slide="6">LingoLens</div>
-                <div class="group-tab" data-slide="7">FaceShield</div>
+                <div class="group-tab active" data-slide="0">ControlTech</div>
+                <div class="group-tab" data-slide="1">IOTurn</div>
+                <div class="group-tab" data-slide="2">StockBot</div>
+                <div class="group-tab" data-slide="3">Lyria</div>
+                <div class="group-tab" data-slide="4">SENAI Community</div>
+                <div class="group-tab" data-slide="5">LingoLens</div>
+                <div class="group-tab" data-slide="6">FaceShield</div>
             </div>
         </div>
         
         <div class="carousel-container">
             <div class="carousel-slide active">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop" alt="Grupo 1">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop" alt="ControlTech">
                 <div class="carousel-overlay">
-                    <h2>Gerenciamento de Estoque</h2>
+                    <h2 data-i18n="controlTechTitle">Gerenciamento de Estoque</h2>
                     <p>ControlTech</p>
                 </div>
             </div>
-
             <div class="carousel-slide">
-                <img src="https://drive.google.com/file/d/1B9_vwhK-prYBYw7Grk_jVBt-ZRDw3aQg/view?usp=drivesdk" alt="Grupo 2">
+                <img src="https://i.postimg.cc/SQ7Q4228/Logo-Sem-Borda.png" alt="IoTurn">
                 <div class="carousel-overlay">
-                    <h2>Sua operação mais inteligente</h2>
+                    <h2 data-i18n="ioTurnTitle">Sua operação mais inteligente</h2>
                     <p>IoTurn</p>
                 </div>
             </div>
-
             <div class="carousel-slide">
-                <img src="https://i.postimg.cc/wxS8R9Cc/cama.jpg" alt="Grupo 3">
+                <img src="https://i.postimg.cc/wxS8R9Cc/cama.jpg" alt="StockBot">
                 <div class="carousel-overlay">
-                    <h2>Gerenciamento de almoxarifado</h2>
+                    <h2 data-i18n="stockBotTitle">Gerenciamento de almoxarifado</h2>
                     <p>StockBot</p>
                 </div>
             </div>
-
             <div class="carousel-slide">
-                <img src="https://i.postimg.cc/XNsnzMy6/lyria-logo.png" alt="Grupo 4">
+                <img src="https://i.postimg.cc/XNsnzMy6/lyria-logo.png" alt="Lyria">
                 <div class="carousel-overlay">
-                    <h2>Assistente comunicativo com IA</h2>
+                    <h2 data-i18n="lyriaTitle">Assistente comunicativo com IA</h2>
                     <p>Lyria</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop" alt="Grupo 5">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&h=1080&fit=crop" alt="Community">
                 <div class="carousel-overlay">
-                    <h2>Rede Social do SENAI</h2>
+                    <h2 data-i18n="communityTitle">Rede Social do SENAI</h2>
                     <p>SENAI Community</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1920&h=1080&fit=crop" alt="Grupo 6">
+                <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1920&h=1080&fit=crop" alt="LingoLens">
                 <div class="carousel-overlay">
-                    <h2>Tradutor de Libras inteligente</h2>
+                    <h2 data-i18n="lingoLensTitle">Tradutor de Libras inteligente</h2>
                     <p>LingoLens</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://i.postimg.cc/rskc5gvC/Face-Shield-Tipografia.png" alt="Grupo 7">
+                <img src="https://i.postimg.cc/qBKVnQPy/Face-Shield-Tipografia.png" alt="FaceShield">
                 <div class="carousel-overlay">
-                    <h2>Sistema de Segurança Inteligente</h2>
+                    <h2 data-i18n="faceShieldTitle">Sistema de Segurança e Gerenciamento Inteligente </h2>
                     <p>FaceShield</p>
                 </div>
             </div>
@@ -121,196 +113,159 @@
             <button class="carousel-arrow next">›</button>
         </div>
         
-        <div class="scroll-indicator"></div>
+        <div class="scroll-indicator">↓</div>
     </section>
 
     <section class="projects-section">
         <h2 class="section-title" data-i18n="ourProjects">Nossos Projetos</h2>
 
+
+        <!-- ControlTech -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Projeto 1">
             </div>
             <div class="project-content">
                 <div class="project-number">ControlTech</div>
-                <h3 class="project-title">Gerenciamento de Estoque</h3>
-                <p class="project-description">
+                <h3 class="project-title" data-i18n="controlTechTitle">Gerenciamento de Estoque</h3>
+                <p class="project-description" data-i18n="controlTechDesc">
                     Desenvolvimento de um sistema completo de automação para controle de processos industriais, 
                     utilizando IoT e sensores inteligentes para otimização de produção.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
                 </div>
             </div>
         </div>
-
+        <!-- IoTurn -->
         <div class="project-card">
             <div class="project-image">
-                <img src="https://ibb.co/gLFDcQSF" alt="Projeto 2">
+                <img src="https://i.postimg.cc/SQ7Q4228/Logo-Sem-Borda.png" alt="Projeto 2">
             </div>
             <div class="project-content">
                 <div class="project-number">IoTurn</div>
-                <h3 class="project-title">Sua operação mais inteligente!</h3>
-                <p class="project-description">
-                    Ecossistema IoT robusto utilizando comunicação LoRa para coleta de dados e algoritmos de Inteligência Artificial para predições precisas
+                <h3 class="project-title" data-i18n="ioTurnTitle">Sua operação mais inteligente!</h3>
+                <p class="project-description" data-i18n="ioTurnDesc">
+                    Ecossistema IoT robusto utilizando comunicação LoRa para coleta de dados e algoritmos de Inteligência Artificial.
                 </p>
                 <div class="botoes-container">
-                    <a href="youtu.be/8BgPmze9knw" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtu.be/-FsdqZH3w8k" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
-                    <a href="https://page-ioturn-demo.vercel.app/about" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://page-ioturn-demo.vercel.app/about" target="_blank" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
                 </div>
             </div>
         </div>
 
+        <!-- StockBot -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Projeto 3">
             </div>
             <div class="project-content">
                 <div class="project-number">StockBot</div>
-                <h3 class="project-title">Gerenciamento de almoxarifado</h3>
-                <p class="project-description">
-                    O StockBot visa preencher lacunas em seu estoque, sem a existência de falhas utilizando um sistema pratico e funcional para seu estoque.
+                <h3 class="project-title" data-i18n="stockBotTitle">Gerenciamento de almoxarifado</h3>
+                <p class="project-description" data-i18n="stockBotDesc">
+                    O StockBot visa preencher lacunas em seu estoque, sem a existência de falhas utilizando um sistema pratico.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
-                    <a href="https://stockbot-front.onrender.com/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div> 
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://stockbot-front.onrender.com/" target="_blank" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
-
+        <!-- Lyria -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://i.postimg.cc/XNsnzMy6/lyria-logo.png" alt="Projeto 4">
             </div>
             <div class="project-content">
                 <div class="project-number">Lyria</div>
-                <h3 class="project-title">Assistente comunicativo com IA</h3>
-                <p class="project-description">
-                    A Lyria tem como objetivo facilitar o cotidiano, buscando acolher o maior número possível de pessoas. Para isso, contamos com um chatbot e um robô capazes de adotar diferentes personalidades, adaptando-se ao ambiente em que estão inseridos e às necessidades de cada usuário.
+                <h3 class="project-title" data-i18n="lyriaTitle">Assistente comunicativo com IA</h3>
+                <p class="project-description" data-i18n="lyriaDesc">
+                    Lyria tem como objetivo facilitar o cotidiano, com chatbot e robô capazes de adotar diferentes personalidades.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtu.be/gzInOLuhOrI" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtu.be/kyCf2MAAaQ8" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://lyriafront.onrender.com/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div> 
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://lyriafront.onrender.com/" target="_blank" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
-
+        
+        <!-- Senai Community -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Projeto 5">
             </div>
             <div class="project-content">
-                <div class="project-number">SENAICommunity </div>
-                <h3 class="project-title">Rede Social do SENAI</h3>
-                <p class="project-description">
-                    Projeto de implementação de um sistema híbrido de energia solar e eólica, 
-                    com monitoramento inteligente e otimização de consumo energético.
+                <div class="project-number">SENAI Community</div>
+                <h3 class="project-title" data-i18n="communityTitle">Rede Social do SENAI</h3>
+                <p class="project-description" data-i18n="communityDesc">
+                    Rede social exclusiva para conectar alunos do SENAI a projetos e vagas de emprego.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
-                    <a href="#" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div> 
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://senai-community-front.vercel.app/" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
+        <!-- LingoLens -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800" alt="Projeto 6">
             </div>
             <div class="project-content">
                 <div class="project-number">LingoLens</div>
-                <h3 class="project-title">Tradutor de Libras inteligente</h3>
-                <p class="project-description">
-                    O LingoLens é um tradutor de Libras (alfabeto A-Z) em tempo real. Ele captura gestos via câmera, processa os landmarks da mão e converte os sinais em texto, exibindo a letra formada diretamente na tela.
+                <h3 class="project-title" data-i18n="lingoLensTitle">Tradutor de Libras inteligente</h3>
+                <p class="project-description" data-i18n="lingoLensDesc">
+                   Tradutor de Libras em tempo real que captura gestos e converte em texto.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtu.be/v6j84abdiLo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtu.be/CVwJUu2ihc8" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="#" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div> 
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://comforting-beignet-76ff50.netlify.app" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
+        <!-- FaceShield -->
         <div class="project-card">
             <div class="project-image">
-                <img src="https://i.postimg.cc/VsVdbc6m/Face-Shield-Tipografia.png" alt="Projeto 7">
+                <img src="https://i.postimg.cc/RCTKN062/Face-Shield-Tipografia.png" alt="Projeto 7">
             </div>
             <div class="project-content">
                 <div class="project-number">FaceShield</div>
-                <h3 class="project-title">Sistema de Segurança Inteligente</h3>
-                <p class="project-description">
-                    Solução completa de segurança utilizando reconhecimento facial, 
-                    alertas em tempo real e integração com dispositivos móveis para proteção residencial.
+                <h3 class="project-title" data-i18n="faceShieldTitle">Gestão inteligente de empréstimos com reconhecimento facial e buscas rápidas.</h3>
+                <p class="project-description" data-i18n="faceShieldDesc">
+                    Sistema de gerenciamento de empréstimos de ferramentas com reconhecimento facial, CRUD e buscas detalhadas.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Funcionamento</a>
-                    <a href="#" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div> 
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://senaisp-unid601-projetos.github.io/FaceShield/" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
+
     </section>
 
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3 data-i18n="footerAboutTitle">SENAI São Carlos</h3>
-                <p data-i18n="footerAboutText">
-                    Centro de referência em formação técnica e tecnológica, 
-                    preparando profissionais para os desafios da Indústria 4.0.
-                </p>
-                <p style="margin-top: 20px;">
-                    <strong data-i18n="footerAboutSlogan">Formando o futuro da tecnologia</strong>
-                </p>
+                <h3 data-i18n="footerCity">SENAI São Carlos</h3>
+                <p data-i18n="footerText">Centro de referência em formação técnica e tecnológica.</p>
+                <p><strong data-i18n="footerSlogan">Formando o futuro da tecnologia</strong></p>
             </div>
-
             <div class="footer-section">
-                <h3 data-i18n="footerClassesTitle">Turmas 2024/2025</h3>
-                <p data-i18n="class3TDSTitle">3º Técnico em Desenvolvimento de Sistemas</p>
-                <p data-i18n="class2IMECBTitle">2º Integral em Mecatrônica</p>
-                <p data-i18n="class2IDSTitle">2º Integral em Desenvolvimento de Sistemas</p>
-            </div>
-
-            <div class="footer-section">
-                <h3 data-i18n="footerDeveloperTitle">Desenvolvedor</h3>
-                <p><span data-i18n="footerDevelopedBy">Desenvolvido por</span> <strong class="creator-highlight">Felipe De Freitas Rossi</strong></p>
-                
+                <h3 data-i18n="footerDevTitle">Desenvolvedor</h3>
+                <p><span data-i18n="footerDevelopedBy">Desenvolvido por</span> <strong>Felipe De Freitas Rossi</strong></p>
                 <div class="social-links">
-                    <a href="https://instagram.com/fezinn_08" target="_blank" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        @Fezinn_08
-                    </a>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://github.com/FelipeFreitasRossi" target="_blank" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        FelipeFreitasRossi
-                    </a>
+                    <a href="https://instagram.com/fezinn_08" target="_blank" class="social-link">@Fezinn_08</a>
+                    <a href="https://github.com/FelipeFreitasRossi" target="_blank" class="social-link">Github</a>
                 </div>
             </div>
         </div>
-
-        <div class="footer-divider"></div>
-
         <div class="footer-bottom">
-            <p><strong>SENAI São-Carlos</strong> - <span data-i18n="footerIndustry">Serviço Nacional de Aprendizagem Industrial</span></p>
-            <p data-i18n="footerRights">© 2025 Todos os direitos reservados</p>
-            <p style="margin-top: 15px; font-size: 0.85rem;">
-                <span data-i18n="footerDevelopedBy">Desenvolvido por</span> <span class="creator-highlight">Felipe De Freitas Rossi</span>
-            </p>
+            <p data-i18n="footerRights">© 2025 SENAI São-Carlos - Todos os direitos reservados</p>
         </div>
     </footer>
-
 </body>
 </html>

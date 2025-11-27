@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENAI - 2IMEC</title>
-    
-    <link rel="stylesheet" href="/css/projetos.css">
 
-    <script src="/js/projetos.js" defer></script>
-    <script src="/js/i18n.js" defer></script>
+    <link rel="stylesheet" href="../css/projetos.css">
+    
+    <script src="../js/Translate2IMEC.js"></script> 
+    <script src="../js/projetos.js" defer></script>
 </head>
 <body>
-        <!-- Botão Voltar -->
-    <button class="back-btn" onclick="window.history.back()" aria-label="Voltar">
+
+    <button class="back-btn" onclick="window.location.href='../index.html'" aria-label="Voltar">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor"/>
         </svg>
         <span data-i18n="back">Voltar</span>
     </button>
-    <!-- Botões de Controle de Tema e Idioma -->
+
     <div class="controls-container">
-        <!-- Botão de Tema -->
         <button class="control-btn" id="theme-toggle" aria-label="Alternar tema">
             <svg class="icon-sun" id="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="5" fill="currentColor"/>
@@ -39,39 +38,30 @@
             <span data-i18n="theme">Tema</span>
         </button>
 
-        <!-- Botão de Idioma -->
         <button class="control-btn" id="language-toggle" aria-label="Alternar idioma">
             <svg class="icon-language" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" fill="currentColor"/>
+                <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04z" fill="currentColor"/>
             </svg>
             <span id="current-lang">PT</span>
         </button>
     </div>
 
-    <!-- Particles Canvas -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Floating Shapes -->
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
-
-    <!-- Carousel Section -->
     <section class="carousel-section">
         <div class="carousel-header">
             <div class="group-tabs">
-                <div class="group-tab active" data-slide="1" data-i18n="group1">Grupo 1</div>
-                <div class="group-tab" data-slide="2" data-i18n="group2">Grupo 2</div>
-                <div class="group-tab" data-slide="3" data-i18n="group3">Grupo 3</div>
-                <div class="group-tab" data-slide="4" data-i18n="group4">Grupo 4</div>
-                <div class="group-tab" data-slide="5" data-i18n="group5">Grupo 5</div>
-                <div class="group-tab" data-slide="6" data-i18n="group6">Grupo 6</div>
-                <div class="group-tab" data-slide="7" data-i18n="group7">Grupo 7</div>
-                <div class="group-tab" data-slide="8">Mechatec Solutions</div>
-                <div class="group-tab" data-slide="9">CyberTrace: Plotech</div>
-                <div class="group-tab" data-slide="10">TechnoArm : Arm Simulator</div>
-                <div class="group-tab" data-slide="11">SelectPro: WinderTech</div>
-                <div class="group-tab" data-slide="12" data-i18n="group5">Grupo 12</div>
-                <div class="group-tab" data-slide="13" data-i18n="group6">Grupo 13</div>
+                <div class="group-tab active" data-slide="0">Grupo 1</div>
+                <div class="group-tab" data-slide="1">Grupo 2</div>
+                <div class="group-tab" data-slide="2">Grupo 3</div>
+                <div class="group-tab" data-slide="3">Grupo 4</div>
+                <div class="group-tab" data-slide="4">Grupo 5</div>
+                <div class="group-tab" data-slide="5">Grupo 6</div>
+                <div class="group-tab" data-slide="6">Grupo 7</div>
+                <div class="group-tab" data-slide="7">Mechatec</div>
+                <div class="group-tab" data-slide="8">CyberTrace</div>
+                <div class="group-tab" data-slide="9">TechnoArm</div>
+                <div class="group-tab" data-slide="10">SelectPro</div>
+                <div class="group-tab" data-slide="11">InnovaTech</div>
+                <div class="group-tab" data-slide="12">Grupo 13</div>
             </div>
         </div>
         
@@ -79,92 +69,92 @@
             <div class="carousel-slide active">
                 <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop" alt="Grupo 1">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecB_project1Title">Robô Móvel Autônomo</h2>
-                    <p data-i18n="group1">Grupo 1</p>
+                    <h2 data-i18n="mec_p1_title">Robô Móvel Autônomo</h2>
+                    <p>Grupo 1</p>
                 </div>
             </div>
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop" alt="Grupo 2">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecB_project2Title">Sistema Hidráulico Automatizado</h2>
-                    <p data-i18n="group2">Grupo 2</p>
+                    <h2 data-i18n="mec_p2_title">Sistema Hidráulico</h2>
+                    <p>Grupo 2</p>
                 </div>
             </div>
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1581092160607-ee5c1f36f44d?w=1920&h=1080&fit=crop" alt="Grupo 3">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecB_project3Title">Drone para Inspeção Industrial</h2>
-                    <p data-i18n="group3">Grupo 3</p>
+                    <h2 data-i18n="mec_p3_title">Drone de Inspeção</h2>
+                    <p>Grupo 3</p>
                 </div>
             </div>
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1581092918484-8313e1f7f58d?w=1920&h=1080&fit=crop" alt="Grupo 4">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecB_project4Title">Impressora 3D com Sensores</h2>
-                    <p data-i18n="group4">Grupo 4</p>
+                    <h2 data-i18n="mec_p4_title">Impressora 3D Inteligente</h2>
+                    <p>Grupo 4</p>
                 </div>
             </div>
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&h=1080&fit=crop" alt="Grupo 5">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecB_project5Title">Sistema de Monitoramento Térmico</h2>
-                    <p data-i18n="group5">Grupo 5</p>
+                    <h2 data-i18n="mec_p5_title">Monitoramento Térmico</h2>
+                    <p>Grupo 5</p>
                 </div>
             </div>
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&h=1080&fit=crop" alt="Grupo 6">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecB_project6Title">AGV - Veículo Guiado Automaticamente</h2>
-                    <p data-i18n="group6">Grupo 6</p>
+                    <h2 data-i18n="mec_p6_title">AGV Industrial</h2>
+                    <p>Grupo 6</p>
                 </div>
             </div>
             <div class="carousel-slide">
                 <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?w=1920&h=1080&fit=crop" alt="Grupo 7">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecB_project7Title">Célula Robotizada de Manufatura</h2>
-                    <p data-i18n="group7">Grupo 7</p>
+                    <h2 data-i18n="mec_p7_title">Célula Robotizada</h2>
+                    <p>Grupo 7</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920&h=1080&fit=crop" alt="Grupo 1">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920&h=1080&fit=crop" alt="Mechatec">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecC_project1Title">Seletora de brocas</h2>
+                    <h2 data-i18n="mec_p8_title">Seletora de Brocas</h2>
                     <p>Mechatec Solutions</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&h=1080&fit=crop" alt="Grupo 2">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&h=1080&fit=crop" alt="CyberTrace">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecC_project2Title">Desenhos Técnicos com inteligência artificial</h2>
-                    <p>CyberTrace: Plotech</p>
+                    <h2 data-i18n="mec_p9_title">Desenho com IA</h2>
+                    <p>CyberTrace</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920&h=1080&fit=crop" alt="Grupo 3">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920&h=1080&fit=crop" alt="TechnoArm">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecC_project3Title">Braço robótico</h2>
-                    <p>TechnoArm : Arm Simulator</p>
+                    <h2 data-i18n="mec_p10_title">Braço Robótico</h2>
+                    <p>TechnoArm</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop" alt="Grupo 4">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&h=1080&fit=crop" alt="SelectPro">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecC_project4Title">CNC Controlado por Arduino</h2>
-                    <p>SelectPro: WinderTech</p>
+                    <h2 data-i18n="mec_p11_title">CNC Arduino</h2>
+                    <p>SelectPro</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop" alt="Grupo 5">
+                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop" alt="InnovaTech">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecC_project5Title">Sistema de Controle de Esteira</h2>
+                    <h2 data-i18n="mec_p12_title">Controle de Esteira</h2>
                     <p>InnovaTech</p>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop" alt="Grupo 6">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop" alt="Grupo 13">
                 <div class="carousel-overlay">
-                    <h2 data-i18n="mecC_project6Title">Sensor IoT para Indústria 4.0</h2>
-                    <p data-i18n="group6">Grupo 13</p>
+                    <h2 data-i18n="mec_p13_title">Sensor IoT</h2>
+                    <p>Grupo 13</p>
                 </div>
             </div>
             
@@ -172,326 +162,253 @@
             <button class="carousel-arrow next">›</button>
         </div>
         
-        <div class="scroll-indicator"></div>
+        <div class="scroll-indicator">↓</div>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects-section">
-        <h2 class="section-title" data-i18n="mecB_sectionTitle">Projetos 2IMEC</h2>
+        <h2 class="section-title" data-i18n="ourProjects">Projetos 2IMEC</h2>
 
-        <!-- Projeto 1 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="#" alt="Projeto 1">
+                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800" alt="Projeto 1">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project01">PROJETO 01</div>
-                <h3 class="project-title" data-i18n="mecB_project1Title">Robô Móvel Autônomo</h3>
-                <p class="project-description" data-i18n="mecB_project1Desc">
-                    Plataforma robótica móvel com sistema de navegação autônoma utilizando sensores ultrassônicos, 
-                    LIDAR e algoritmos de mapeamento SLAM para aplicações em ambientes industriais.
+                <div class="project-number">PROJETO 01</div>
+                <h3 class="project-title" data-i18n="mec_p1_title">Robô Móvel Autônomo</h3>
+                <p class="project-description" data-i18n="mec_p1_desc">
+                    Plataforma robótica móvel com sistema de navegação autônoma utilizando sensores ultrassônicos, LIDAR e algoritmos de mapeamento SLAM.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
                 </div>
             </div>
         </div>
 
-        <!-- Projeto 2 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800" alt="Projeto 2">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project02">PROJETO 02</div>
-                <h3 class="project-title" data-i18n="mecB_project2Title">Sistema Hidráulico Automatizado</h3>
-                <p class="project-description" data-i18n="mecB_project2Desc">
-                    Bancada didática de sistema hidráulico com controle eletrônico de pressão e vazão, 
-                    simulando operações de prensas industriais e sistemas de elevação.
+                <div class="project-number">PROJETO 02</div>
+                <h3 class="project-title" data-i18n="mec_p2_title">Sistema Hidráulico Automatizado</h3>
+                <p class="project-description" data-i18n="mec_p2_desc">
+                    Bancada didática de sistema hidráulico com controle eletrônico de pressão e vazão, simulando operações industriais.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>          
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 3 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092160607-ee5c1f36f44d?w=800" alt="Projeto 3">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project03">PROJETO 03</div>
-                <h3 class="project-title" data-i18n="mecB_project3Title">Drone para Inspeção Industrial</h3>
-                <p class="project-description" data-i18n="mecB_project3Desc">
-                    Drone equipado com câmera térmica e sensores para inspeção de torres, 
-                    linhas de transmissão e estruturas industriais de difícil acesso.
+                <div class="project-number">PROJETO 03</div>
+                <h3 class="project-title" data-i18n="mec_p3_title">Drone para Inspeção</h3>
+                <p class="project-description" data-i18n="mec_p3_desc">
+                    Drone equipado com câmera térmica e sensores para inspeção de torres e estruturas de difícil acesso.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>           
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 4 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092918484-8313e1f7f58d?w=800" alt="Projeto 4">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project04">PROJETO 04</div>
-                <h3 class="project-title" data-i18n="mecB_project4Title">Impressora 3D com Sensores Inteligentes</h3>
-                <p class="project-description" data-i18n="mecB_project4Desc">
-                    Impressora 3D FDM customizada com sistema de auto-nivelamento, 
-                    sensores de filamento e monitoramento remoto via IoT para fabricação de precisão.
+                <div class="project-number">PROJETO 04</div>
+                <h3 class="project-title" data-i18n="mec_p4_title">Impressora 3D Inteligente</h3>
+                <p class="project-description" data-i18n="mec_p4_desc">
+                    Impressora 3D FDM customizada com sistema de auto-nivelamento e sensores de filamento via IoT.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>          
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 5 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800" alt="Projeto 5">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project05">PROJETO 05</div>
-                <h3 class="project-title" data-i18n="mecB_project5Title">Sistema de Monitoramento Térmico</h3>
-                <p class="project-description" data-i18n="mecB_project5Desc">
-                    Rede de sensores térmicos para monitoramento contínuo de temperatura em processos industriais, 
-                    com alertas automáticos e análise preditiva de falhas.
+                <div class="project-number">PROJETO 05</div>
+                <h3 class="project-title" data-i18n="mec_p5_title">Sistema de Monitoramento</h3>
+                <p class="project-description" data-i18n="mec_p5_desc">
+                    Rede de sensores térmicos para monitoramento contínuo de temperatura em processos industriais.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>          
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 6 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Projeto 6">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project06">PROJETO 06</div>
-                <h3 class="project-title" data-i18n="mecB_project6Title">AGV - Veículo Guiado Automaticamente</h3>
-                <p class="project-description" data-i18n="mecB_project6Desc">
-                    Veículo de transporte autônomo para movimentação de materiais em ambientes industriais, 
-                    utilizando navegação por fita magnética e sensores de obstáculos.
+                <div class="project-number">PROJETO 06</div>
+                <h3 class="project-title" data-i18n="mec_p6_title">AGV Industrial</h3>
+                <p class="project-description" data-i18n="mec_p6_desc">
+                    Veículo de transporte autônomo para movimentação de materiais utilizando navegação por fita magnética.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>          
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 7 -->
         <div class="project-card">
             <div class="project-image">
                 <img src="https://images.unsplash.com/photo-1563207153-f403bf289096?w=800" alt="Projeto 7">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project07">PROJETO 07</div>
-                <h3 class="project-title" data-i18n="mecB_project7Title">Célula Robotizada de Manufatura</h3>
-                <p class="project-description" data-i18n="mecB_project7Desc">
-                    Célula de manufatura integrada com braço robótico, esteira transportadora e sistema 
-                    de visão computacional para montagem automatizada de componentes eletrônicos.
+                <div class="project-number">PROJETO 07</div>
+                <h3 class="project-title" data-i18n="mec_p7_title">Célula Robotizada</h3>
+                <p class="project-description" data-i18n="mec_p7_desc">
+                    Célula de manufatura integrada com braço robótico e sistema de visão computacional.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>     
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 8 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="Projeto 1">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="Mechatec">
             </div>
             <div class="project-content">
                 <div class="project-number">Mechatec Solutions</div>
-                <h3 class="project-title" data-i18n="mecC_project1Title">Seletora de Broca</h3>
-                <p class="project-description" data-i18n="mecC_project1Desc">
-                    Seletora de brocas automatizada, onde você escolhe a broca desejada e ela te entrega automaticamente, fazendo o controle de dados e organizando o ambiente de trabalho
+                <h3 class="project-title" data-i18n="mec_p8_title">Seletora de Brocas</h3>
+                <p class="project-description" data-i18n="mec_p8_desc">
+                    Seletora de brocas automatizada que organiza o ambiente de trabalho e controla dados.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://sites.google.com/u/0/d/10ub8fDeuo4dezu2DwDNULH-QOXTaBClM/preview" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>      
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="https://sites.google.com/u/0/d/10ub8fDeuo4dezu2DwDNULH-QOXTaBClM/preview" target="_blank" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 9 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Projeto 2">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="CyberTrace">
             </div>
             <div class="project-content">
                 <div class="project-number">CyberTrace: Plotech</div>
-                <h3 class="project-title" data-i18n="mecC_project2Title">Desenhos Técnicos com inteligência artificial</h3>
-                <p class="project-description" data-i18n="mecC_project2Desc">
-                    Plotech, a mesa cartesiana de baixo custo controlada por uma inteligência artificial, que será projetada para realizar desenhos técnicos e escritas com precisão.
+                <h3 class="project-title" data-i18n="mec_p9_title">Desenho com IA</h3>
+                <p class="project-description" data-i18n="mec_p9_desc">
+                    Mesa cartesiana de baixo custo controlada por IA para desenhos técnicos e escritas com precisão.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>     
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 10 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="Projeto 3">
+                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="TechnoArm">
             </div>
             <div class="project-content">
-                <div class="project-number">TechnoArm:Arm Simulator</div>
-                <h3 class="project-title" data-i18n="mecC_project3Title">Braço robótico</h3>
-                <p class="project-description" data-i18n="mecC_project3Desc">
-                    Braço robótico em menor escala, para uma solução prática, aulas dinâmicas e melhor o desenvolvimento de trabalhos e estudos
+                <div class="project-number">TechnoArm: Arm Simulator</div>
+                <h3 class="project-title" data-i18n="mec_p10_title">Braço Robótico</h3>
+                <p class="project-description" data-i18n="mec_p10_desc">
+                    Braço robótico em menor escala para soluções práticas e aulas dinâmicas.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>           
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 11 -->
         <div class="project-card">
             <div class="project-image">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="Projeto 4">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="SelectPro">
             </div>
             <div class="project-content">
                 <div class="project-number">SelectPro: WinderTech</div>
-                <h3 class="project-title" data-i18n="mecC_project4Title">CNC Controlado por Arduino</h3>
-                <p class="project-description" data-i18n="mecC_project4Desc">
-                    Fresadora CNC de 3 eixos controlada por GRBL e Arduino, capaz de realizar 
-                    usinagem de precisão em materiais como madeira, plástico e alumínio.
+                <h3 class="project-title" data-i18n="mec_p11_title">CNC Arduino</h3>
+                <p class="project-description" data-i18n="mec_p11_desc">
+                    Fresadora CNC de 3 eixos controlada por GRBL e Arduino para usinagem em madeira, plástico e alumínio.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>          
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 12 -->
         <div class="project-card">
-            <div class="project-image" >
-                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop" alt="Projeto 5">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800" alt="InnovaTech">
             </div>
             <div class="project-content">
                 <div class="project-number">InnovaTech</div>
-                <h3 class="project-title" data-i18n="mecC_project5Title">Visão computacional de Gerenciamento</h3>
-                <p class="project-description" data-i18n="mecC_project5Desc">
-                    Visão computacional para uma organização precisa, eficiente e com qualidade garantida.
+                <h3 class="project-title" data-i18n="mec_p12_title">Visão Computacional</h3>
+                <p class="project-description" data-i18n="mec_p12_desc">
+                    Visão computacional para organização precisa e eficiente com qualidade garantida.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
-                </div>         
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
+                </div>
             </div>
         </div>
 
-        <!-- Projeto 13 -->
         <div class="project-card">
-            <div class="project-image" ">
-                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&h=1080&fit=crop" alt="Projeto 6">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800" alt="Grupo 13">
             </div>
             <div class="project-content">
-                <div class="project-number" data-i18n="project06">PROJETO 06</div>
-                <h3 class="project-title" data-i18n="mecC_project6Title">Sistema IoT para Indústria 4.0</h3>
-                <p class="project-description" data-i18n="mecC_project6Desc">
-                    Rede de sensores inteligentes conectados via IoT para monitoramento em tempo real 
-                    de temperatura, umidade, vibração e consumo energético de máquinas industriais.
+                <div class="project-number">PROJETO 13</div>
+                <h3 class="project-title" data-i18n="mec_p13_title">Sistema IoT</h3>
+                <p class="project-description" data-i18n="mec_p13_desc">
+                    Monitoramento em tempo real de temperatura, umidade e vibração via IoT.
                 </p>
                 <div class="botoes-container">
-                    <a href="https://youtube.com" id="botaoVideo" target="_blank" class="project-link" data-i18n="watchVideo">Funcionamento</a>
-                    <a href="https://youtube.com" target="_blank" class="project-link" data-i18n="watchVideoComercial">Comercial</a>
-                    <a href="https://control-tech-six.vercel.app/" target="_blank" class="project-link link-site" data-i18n="linkSite">Visitar site</a>
+                    <a href="#" class="project-link" data-i18n="working">Funcionamento</a>
+                    <a href="#" class="project-link link-site" data-i18n="visitSite">Visitar site</a>
                 </div>
             </div>
         </div>
+
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <!-- Sobre SENAI -->
             <div class="footer-section">
-                <h3 data-i18n="footerAboutTitle">SENAI São Carlos</h3>
-                <p data-i18n="footerAboutText">
-                    Centro de referência em formação técnica e tecnológica, 
-                    preparando profissionais para os desafios da Indústria 4.0.
-                </p>
-                <p style="margin-top: 20px;">
-                    <strong data-i18n="footerAboutSlogan">Formando o futuro da tecnologia</strong>
-                </p>
+                <h3 data-i18n="footerCity">SENAI São Carlos</h3>
+                <p data-i18n="footerText">Centro de referência em formação técnica e tecnológica.</p>
+                <p><strong data-i18n="footerSlogan">Formando o futuro da tecnologia</strong></p>
             </div>
-
-            <!-- Turmas -->
             <div class="footer-section">
-                <h3 data-i18n="footerClassesTitle">Turmas 2024/2025</h3>
-                <p data-i18n="class3TDSTitle">3º Técnico em Desenvolvimento de Sistemas</p>
-                <p data-i18n="class2IMECBTitle">2º Integral em Mecatrônica</p>
-                <p data-i18n="class2IDSTitle">2º Integral em Desenvolvimento de Sistemas</p>
-            </div>
-
-            <!-- Desenvolvedor -->
-            <div class="footer-section">
-                <h3 data-i18n="footerDeveloperTitle">Desenvolvedor</h3>
-                <p><span data-i18n="footerDevelopedBy">Desenvolvido por</span> <strong class="creator-highlight">Felipe De Freitas Rossi</strong></p>
-                
+                <h3 data-i18n="footerDevTitle">Desenvolvedor</h3>
+                <p><span data-i18n="footerDevelopedBy">Desenvolvido por</span> <strong>Felipe De Freitas Rossi</strong></p>
                 <div class="social-links">
-                    <a href="https://instagram.com/fezinn_08" target="_blank" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"/>
-                        </svg>
-                        @Fezinn_08
-                    </a>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://github.com/FelipeFreitasRossi" target="_blank" class="social-link">
-                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                        FelipeFreitasRossi
-                    </a>
+                    <a href="https://instagram.com/fezinn_08" target="_blank" class="social-link">@Fezinn_08</a>
+                    <a href="https://github.com/FelipeFreitasRossi" target="_blank" class="social-link">Github</a>
                 </div>
             </div>
         </div>
-
-        <div class="footer-divider"></div>
-
         <div class="footer-bottom">
-            <p><strong>SENAI São-Carlos</strong> - <span data-i18n="footerIndustry">Serviço Nacional de Aprendizagem Industrial</span></p>
-            <p data-i18n="footerRights">© 2025 Todos os direitos reservados</p>
-            <p style="margin-top: 15px; font-size: 0.85rem;">
-                <span data-i18n="footerDevelopedBy">Desenvolvido por</span> <span class="creator-highlight">Felipe De Freitas Rossi</span>
-            </p>
+            <p data-i18n="footerRights">© 2025 SENAI São-Carlos - Todos os direitos reservados</p>
         </div>
     </footer>
 </body>
