@@ -5,8 +5,8 @@ const translations = {
         theme: "Tema",
         
         // Hero
-        heroTitle: "Projetos SENAI 2025",
-        heroSubtitle: "São Carlos - Inovação e Tecnologia",
+        heroTitle: "Workshop 2025\nProjetos de Inovação",
+        heroSubtitle: "São Carlos - Tecnologia em Ação",
         
         // Seção de Turmas
         classesTitle: "Turmas SENAI São Carlos 2025",
@@ -63,8 +63,8 @@ const translations = {
         theme: "Theme",
         
         // Hero
-        heroTitle: "SENAI Projects 2025",
-        heroSubtitle: "São Carlos - Innovation and Technology",
+        heroTitle: "Workshop 2025\nInnovation Projects",
+        heroSubtitle: "São Carlos - Technology in Action",
         
         // Classes Section
         classesTitle: "SENAI São Carlos Classes 2025",
@@ -124,9 +124,7 @@ let currentLang = localStorage.getItem('language') || 'pt';
 function translatePage() {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
-        // @ts-ignore
         if (translations[currentLang][key]) {
-            // @ts-ignore
             element.textContent = translations[currentLang][key];
         }
     });
