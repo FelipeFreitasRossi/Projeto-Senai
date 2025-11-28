@@ -39,6 +39,18 @@
     box-shadow: 0 0 15px rgba(102, 126, 234, 0.5);
 }
 
+/* Light Theme Fixes for Header Visibility */
+body.light-theme .group-tab:not(.active) {
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.light-theme .carousel-overlay h2,
+body.light-theme .carousel-overlay p {
+    text-shadow: 0 0 15px rgba(0,0,0,0.9), 0 0 5px rgba(0,0,0,1);
+}
+
 .carousel-container {
     width: 100%;
     height: 100%;
