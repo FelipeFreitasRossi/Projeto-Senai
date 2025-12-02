@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Descrições
             // Atualizado conforme seu HTML
             controlTechDesc: "ControlTech é um sistema de gerenciamento de estoque inteligente, no qual utiliza o crachá para seu acesso.",
-            ioTurnDesc: "Ecossistema IoT robusto utilizando comunicação LoRa para coleta de dados e algoritmos de Inteligência Artificial.",
+            ioTurnDesc: "Sistema que usa sensores de longo alcance e inteligência artificial para coletar, analisar e apoiar decisões em tempo real.",
             stockBotDesc: "O StockBot visa preencher lacunas em seu estoque, sem a existência de falhas utilizando um sistema pratico.",
             lyriaDesc: "Lyria tem como objetivo facilitar o cotidiano, com chatbot e robô capazes de adotar diferentes personalidades.",
             communityDesc: "Rede social exclusiva para conectar alunos do SENAI a projetos e vagas de emprego.",
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Descriptions
             // Tradução atualizada
             controlTechDesc: "ControlTech is an intelligent inventory management system that uses a badge for access.",
-            ioTurnDesc: "Robust IoT ecosystem using LoRa communication for data collection and AI algorithms.",
+            ioTurnDesc: "System that uses long-range sensors and artificial intelligence to collect, analyze, and support real-time decisions.",
             stockBotDesc: "StockBot aims to fill inventory gaps without failures using a practical system.",
             lyriaDesc: "Lyria aims to facilitate daily life, with a chatbot and robot capable of adopting different personalities.",
             communityDesc: "Exclusive social network connecting SENAI students to projects and job openings.",
