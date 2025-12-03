@@ -7,7 +7,7 @@ const translations = {
         working: "Funcionamento",
         commercial: "Comercial",
         visitSite: "Visitar site",
-        
+
         // Abas dos Grupos (Tabs)
         group1: "GC&D",
         group2: "SenAI",
@@ -15,7 +15,8 @@ const translations = {
         group4: "Tool Search",
         group5: "OilMap",
         group6: "Feed-Educ",
-        group7: "Grupo 7",
+        group7: "ChamadaSENAI",
+        group8: "PedeJá", // <-- Atualizado
 
         // Footer
         footerCity: "SENAI São Carlos",
@@ -48,7 +49,12 @@ const translations = {
         ids_p6_title: "Sistema de feedback anônimo",
         ids_p6_desc: "Sistema torna comunicação mais ágil e organizada, permitindo ações rápidas e assertivas no ambiente institucional.",
         ids_p7_title: "Sistema de Segurança Inteligente",
-        ids_p7_desc: "Solução completa de segurança utilizando reconhecimento facial, alertas em tempo real e integração com dispositivos móveis para proteção residencial."
+        ids_p7_desc: "Solução completa de segurança utilizando reconhecimento facial, alertas em tempo real e integração com dispositivos móveis para proteção residencial.",
+        ids_p8_title: "Gestão rápida e eficiente de pedidos", 
+        ids_p8_desc: "O PedeJá oferece um sistema simples e ágil para clientes fazerem pedidos rápidos, com um cardápio sempre atualizado.",
+        
+        // Desenvolvedores da ControlTech (Customizado - Baseado em dados salvos)
+        controlTechDevelopers: "Felipe Rossi, Vitor Hugo, Eliezer, Eduardo e Guilherme"
     },
     en: {
         back: "Back",
@@ -65,8 +71,9 @@ const translations = {
         group4: "Tool Search",
         group5: "OilMap",
         group6: "Feed-Educ",
-        group7: "Group 7",
-        
+        group7: "ChamadaSENAI",
+        group8: "PedeJá", // <-- Updated
+
         // Footer (EN)
         footerCity: "SENAI São Carlos",
         footerAboutTitle: "SENAI São Carlos",
@@ -98,7 +105,12 @@ const translations = {
         ids_p6_title: "Anonymous Feedback System",
         ids_p6_desc: "System makes communication faster and more organized, allowing for quick and assertive actions within the institutional environment.",
         ids_p7_title: "Smart Security System",
-        ids_p7_desc: "Complete security solution using facial recognition, real-time alerts, and integration with mobile devices for residential protection."
+        ids_p7_desc: "Complete security solution using facial recognition, real-time alerts, and integration with mobile devices for residential protection.",
+        ids_p8_title: "Fast and efficient order management", 
+        ids_p8_desc: "PedeJá offers a simple and agile system for customers to place quick orders, with an always updated menu.",
+        
+        // ControlTech Developers (Customized - Based on saved data)
+        controlTechDevelopers: "Felipe Rossi, Vitor Hugo, Eliezer, Eduardo, and Guilherme"
     }
 };
 
@@ -107,25 +119,28 @@ let currentLang = localStorage.getItem('language') || 'pt';
 
 function translatePage() {
     document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        
-        if (translations[currentLang] && translations[currentLang][key]) {
-            // Lógica de elementos complexos (botão voltar com SVG)
-            if (element.children.length > 0 && element.tagName !== 'P' && element.tagName !== 'H2' && element.tagName !== 'H3') {
-                 const span = element.querySelector('span');
-                 if(span) span.textContent = translations[currentLang][key];
-            } else {
-                 element.textContent = translations[currentLang][key];
-            }
+    const key = element.getAttribute('data-i18n');
+
+    // @ts-ignore
+    if (translations[currentLang] && translations[currentLang][key]) {
+        // Lógica de elementos complexos (botão voltar com SVG)
+        if (element.children.length > 0 && element.tagName !== 'P' && element.tagName !== 'H2' && element.tagName !== 'H3') {
+            const span = element.querySelector('span');
+            // @ts-ignore
+            if(span) span.textContent = translations[currentLang][key];
+        } else {
+            // @ts-ignore
+            element.textContent = translations[currentLang][key];
         }
+    }
     });
-    
+
     // Atualizar botão de idioma
     const langButton = document.getElementById('current-lang');
     if (langButton) {
         langButton.textContent = currentLang.toUpperCase();
     }
-    
+
     // Atualizar atributo lang do HTML
     document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
 }
@@ -141,7 +156,7 @@ function toggleLanguage() {
 document.addEventListener('DOMContentLoaded', () => {
     // Inicializar tradução (aplicará o idioma salvo/padrão)
     translatePage();
-    
+
     // Event listener para botão de idioma
     const languageToggle = document.getElementById('language-toggle');
     if (languageToggle) {
